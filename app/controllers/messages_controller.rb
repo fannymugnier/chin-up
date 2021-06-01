@@ -7,7 +7,7 @@ class MessagesController < ApplicationController
     if @message.save
       redirect_to room_path(@room, anchor: "message-#{@message.id}")
     else
-      render 'room/show'
+      render 'rooms/show'
     end
   end
 
