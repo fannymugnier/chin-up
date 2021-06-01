@@ -10,17 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_01_123324) do
+ActiveRecord::Schema.define(version: 2021_06_01_144113) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "answers", force: :cascade do |t|
-    t.string "answer_content"
+    t.string "selected_proposition"
     t.bigint "survey_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id", null: false
     t.index ["survey_id"], name: "index_answers_on_survey_id"
+    t.index ["user_id"], name: "index_answers_on_user_id"
   end
 
   create_table "interests", force: :cascade do |t|
@@ -68,21 +70,14 @@ ActiveRecord::Schema.define(version: 2021_06_01_123324) do
     t.string "title"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "first_proposition"
+    t.string "second_proposition"
   end
 
   create_table "topics", force: :cascade do |t|
     t.string "content"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "user_answers", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.bigint "answer_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["answer_id"], name: "index_user_answers_on_answer_id"
-    t.index ["user_id"], name: "index_user_answers_on_user_id"
   end
 
   create_table "user_interests", force: :cascade do |t|
@@ -109,14 +104,13 @@ ActiveRecord::Schema.define(version: 2021_06_01_123324) do
   end
 
   add_foreign_key "answers", "surveys"
+  add_foreign_key "answers", "users"
   add_foreign_key "messages", "rooms"
   add_foreign_key "messages", "users"
   add_foreign_key "room_interests", "interests"
   add_foreign_key "room_interests", "rooms"
   add_foreign_key "room_topics", "rooms"
   add_foreign_key "room_topics", "topics"
-  add_foreign_key "user_answers", "answers"
-  add_foreign_key "user_answers", "users"
   add_foreign_key "user_interests", "interests"
   add_foreign_key "user_interests", "users"
 end
