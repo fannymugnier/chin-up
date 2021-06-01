@@ -1,0 +1,16 @@
+.card-container {
+  margin-top: 15px;
+  display: grid;
+  grid-row-gap: 10px;
+  grid-column-gap: 10px;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.card-room {
+  background-image: url(https://source.unsplash.com/random?sig=123);
+  background-size: cover;
+  // width: 400px;
+  height: 200px;
+  border-radius: 15px;
+  color: #fff;
+}
