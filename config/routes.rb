@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'messages/create'
   devise_for :users
   root to: 'pages#home'
   resources :rooms, only: [:index, :show] do
