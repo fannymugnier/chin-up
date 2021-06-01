@@ -4,8 +4,13 @@
     <div class="card-container">
   <% @rooms.each do |room| %>
       <div class="card-room">
-        <h2><%= room.name %></h2>
-        <p><%= room.description %></p>
+        <h2 id="room-name"><%= room.name %></h2>
+        <div class="hide">
+          <div class="hover-description">
+            <p><%= room.description %></p>
+            <%= link_to 'Rejoindre', room_path(room, query: params[:query]), class: 'button' %>
+          </div>
+        </div>
       </div>
   <% end %>
     </div>
