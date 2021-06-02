@@ -12,7 +12,6 @@ class RoomsController < ApplicationController
 
   def set_room
     @room = Room.find(params[:id])
-    authorize @room
   end
 
   def set_entities
