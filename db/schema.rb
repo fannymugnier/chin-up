@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_01_153713) do
+ActiveRecord::Schema.define(version: 2021_06_02_135247) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 2021_06_01_153713) do
     t.bigint "room_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "message_type"
     t.index ["room_id"], name: "index_messages_on_room_id"
     t.index ["user_id"], name: "index_messages_on_user_id"
   end
@@ -73,6 +74,8 @@ ActiveRecord::Schema.define(version: 2021_06_01_153713) do
     t.string "first_proposition"
     t.string "second_proposition"
     t.bigint "room_id", null: false
+    t.bigint "author_id", null: false
+    t.index ["author_id"], name: "index_surveys_on_author_id"
     t.index ["room_id"], name: "index_surveys_on_room_id"
   end
 
@@ -114,6 +117,7 @@ ActiveRecord::Schema.define(version: 2021_06_01_153713) do
   add_foreign_key "room_topics", "rooms"
   add_foreign_key "room_topics", "topics"
   add_foreign_key "surveys", "rooms"
+  add_foreign_key "surveys", "users", column: "author_id"
   add_foreign_key "user_interests", "interests"
   add_foreign_key "user_interests", "users"
 end
