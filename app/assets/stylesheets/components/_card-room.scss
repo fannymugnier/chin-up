@@ -1,0 +1,55 @@
+/** @format */
+// I tried to get random images from unsplash for each card but it doesn't seems to work.
+$randomNumber: random(200);
+
+.card-container {
+  margin-top: 15px;
+  display: grid;
+  grid-row-gap: 10px;
+  grid-column-gap: 10px;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.card-room {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgb(0, 0, 0)),
+    url(https://source.unsplash.com/random?sig=#{$randomNumber});
+  background-size: cover;
+  height: 200px;
+  border-radius: 15px;
+  color: #fff;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  transition: all 0.4s;
+
+  h2 {
+    transition: all 0.4s ease;
+    margin: 0 0 15px 20px;
+  }
+  // card growing a little big
+  &:hover {
+    transform: scale(1.01);
+  }
+  // text going up
+  &:hover h2 {
+    transform: translateY(-100px);
+  }
+  // description and link appearing and getting bigger
+  &:hover .hover-description {
+    opacity: 0.9;
+    bottom: 30px;
+  }
+}
+
+.hide {
+  position: absolute;
+}
+
+.hover-description {
+  opacity: 0;
+  position: absolute;
+  padding: 20px;
+  width: max-content;
+  bottom: -55px;
+  transition: all 0.4s ease;
+}
