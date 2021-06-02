@@ -6,7 +6,9 @@ class RoomsController < ApplicationController
     @rooms = policy_scope Room
   end
 
-  def show; end
+  def show
+    @ongoing_survey = @room.surveys.find_by(status: "open")
+  end
 
   private
 
