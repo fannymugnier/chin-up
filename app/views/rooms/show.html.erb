@@ -21,13 +21,32 @@
           <%= simple_form_for([@room, @message]) do |f| %>
             <% topics_array=[] %>
             <% @room.topics.each { |topic| topics_array << topic.content } %>
-            <% topics_array %>
-              <%= f.input_field :content, as: :radio_buttons, collection: topics_array, class: 'topic-input'%>
+            <%= f.input_field :content, as: :radio_buttons, collection: topics_array, class: 'topic-input'%>
           <% end %>
         </div>
       </div>
     </section>
+    <section class="room-survey">
+      <div class="expand">
+        <button class="expand-button">
+          <h2>Sondages</h2>
+        </button>
+        <div class="expand-content">
+          <div class="surveys_status">
+            <div class="ongoing-survey">
+              <%= @ongoing_survey.title %>
+              <%= @ongoing_survey.first_proposition %>
+              <%= @ongoing_survey.second_proposition %>
+            </div>
+            <div class="closed-surveys">
+              <p>closed</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   </aside>
+
   <div id="chat">
     <div id="messages" data-chatroom-id="<%= @room.id %>">
       <% @room.messages.each do |message| %>
