@@ -1,0 +1,39 @@
+/** @format */
+$grey : rgb(136, 135, 135);
+
+.expand-button {
+  display: block;
+  width: 100%;
+  padding: 15px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background: $grey;
+  text-align: center;
+  // transition: background 0.2s;
+  border-radius: 15px;
+  transition: border-radius 0.6s;
+}
+
+.expand-content {
+  overflow: hidden;
+  max-height: 0;
+  transition:max-height 0.2s;
+  padding: 0 15px;
+  padding:0;
+  transition: all 0.2s;
+  p {
+    background-color: $grey;
+    padding: 0;
+    margin: 0;
+    &:last-child {
+      border-bottom-right-radius: 15px;
+      border-bottom-left-radius: 15px;
+    }
+  }
+}
+
+.expand-button--active {
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
