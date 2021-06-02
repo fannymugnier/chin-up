@@ -8,7 +8,7 @@ $grey : rgb(136, 135, 135);
   border: none;
   outline: none;
   cursor: pointer;
-  background: $grey;
+  background: #fff;
   text-align: center;
   // transition: background 0.2s;
   border-radius: 15px;
@@ -31,9 +31,26 @@ $grey : rgb(136, 135, 135);
       border-bottom-left-radius: 15px;
     }
   }
+    .form-group {
+    margin: 0;
+  }
 }
 
 .expand-button--active {
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.button-field {
+  text-align: center;
+  background-color:#fff;
+  height: 30px;
+  
+  .btn {
+    background-color:rgb(255, 255, 255);
+    padding: 5px 15px;
+    border-radius: 999px;
+    border: 1px solid #000;
+  }
 }

@@ -19,10 +19,24 @@
         </button>
         <div class="expand-content">
           <%= simple_form_for([@room, @message]) do |f| %>
+          <%= hidden_field_tag :message_type, "topic" %>
             <% topics_array=[] %>
             <% @room.topics.each { |topic| topics_array << topic.content } %>
             <% topics_array %>
-              <%= f.input_field :content, as: :radio_buttons, collection: topics_array, class: 'topic-input'%>
+              <%# f.input_field :content, as: :radio_buttons, collection: topics_array, class: 'topic-input'%>
+
+              <%= f.input :content,
+                                as: :radio_buttons,
+                                collection_wrapper_tag: 'div',
+                                collection_wrapper_class: 'category-wrapper',
+                                item_wrapper_class: 'category-item',
+                                input_html: {class: 'category-selector'},
+                                collection: topics_array %>
+
+              <div class="button-field">
+                <%= f.button :submit, "Proposer" %>
+              </div>
+
           <% end %>
         </div>
       </div>
