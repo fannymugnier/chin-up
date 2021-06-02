@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   validates :username, presence: true
+  validates :username, uniqueness: true
   validates :age, numericality: { only_integer: true }
   validates :age, presence: true
 end
