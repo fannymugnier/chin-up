@@ -5,5 +5,11 @@ Rails.application.routes.draw do
     resources :messages, only: [:create]
     resources :surveys, only: [:create]
   end
+  namespace :api, defaults: { format: :json } do
+    namespace :v1 do
+      get '/surveys', to: 'base#test'
+      post '/surveys', to: 'base#create'
+    end
+  end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

@@ -7,17 +7,16 @@ class RoomsController < ApplicationController
   end
 
   def show
-    all_messages = Message.where(room: @room)
-    all_surveys = Survey.where(room: @room)
-    all_topics = Topic.where(room: @room)
-    @entities = (all_messages + all_surveys + all_topics).sort_by(&:created_at)
+    # all_messages = Message.where(room: @room)
+    # all_surveys = Survey.where(room: @room)
+    # all_topics = Topic.where(room: @room)
+    # @entities = (all_messages + all_surveys + all_topics).sort_by(&:created_at)
   end
 
   private
 
   def set_room
     @room = Room.find(params[:id])
-    authorize @room
   end
 
   def set_entities
