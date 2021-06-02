@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_02_135247) do
+ActiveRecord::Schema.define(version: 2021_06_02_145409) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -75,6 +75,7 @@ ActiveRecord::Schema.define(version: 2021_06_02_135247) do
     t.string "second_proposition"
     t.bigint "room_id", null: false
     t.bigint "author_id", null: false
+    t.string "status", default: "open"
     t.index ["author_id"], name: "index_surveys_on_author_id"
     t.index ["room_id"], name: "index_surveys_on_room_id"
   end
