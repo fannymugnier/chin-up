@@ -1,9 +1,41 @@
-<h1>#<%= @room.name %></h1>
-<div id="messages" data-chatroom-id="<%= @room.id %>">
-  <% @room.messages.each do |message| %>
-    <%= render "messages/message", message: message %>
-  <% end %>
+<div class="main-page">
+  <aside class="sidebar">
+    <%# Image de la room %>
+    <section class="room-name ">
+      <div class="card-room card-chatroom">
+        <h2 id="room-name"><%= @room.name %></h2>
+        <div class="hide">
+          <div class="hover-description">
+            <p><%= @room.description %></p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <%# Sondage et autres %>
+    <section class="room-topic">
+      <div class="expand">
+        <button class="expand-button">
+          <h2>Proposer un sujet</h2>
+        </button>
+        <div class="expand-content">
+          <%= simple_form_for([@room, @message]) do |f| %>
+            <% topics_array=[] %>
+            <% @room.topics.each { |topic| topics_array << topic.content } %>
+            <% topics_array %>
+              <%= f.input_field :content, as: :radio_buttons, collection: topics_array, class: 'topic-input'%>
+          <% end %>
+        </div>
+      </div>
+    </section>
+  </aside>
+  <div id="chat">
+    <div id="messages" data-chatroom-id="<%= @room.id %>">
+      <% @room.messages.each do |message| %>
+        <%= render "messages/message", message: message %>
+      <% end %>
+    </div>
+    <%= simple_form_for [ @room, @message ], remote: true do |f| %>
+      <%= f.input :content, label: false, placeholder: "Taper votre message..." %>
+    <% end %>
+  </div>
 </div>
-<%= simple_form_for [ @room, @message ], remote: true do |f| %>
-  <%= f.input :content, label: false, placeholder: "Taper votre message..." %>
-<% end %>

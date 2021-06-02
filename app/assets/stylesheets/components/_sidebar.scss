@@ -1,0 +1,17 @@
+/** @format */
+
+.sidebar {
+  width: 40%;
+}
+
+.card-chatroom {
+  border-radius: 1px;
+  
+  &:hover {
+    transform: scale(1);
+  }
+
+  h2 {
+    margin: 0 0 40px 20px;
+  }
+}
