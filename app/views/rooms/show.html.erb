@@ -1,4 +1,9 @@
-<h1>Rooms#show</h1>
-<p>Find me in app/views/rooms/show.html.erb</p>
-
-<%= @entities %>
+<h1>#<%= @room.name %></h1>
+<div id="messages" data-chatroom-id="<%= @room.id %>">
+  <% @room.messages.each do |message| %>
+    <%= render "messages/message", message: message %>
+  <% end %>
+</div>
+<%= simple_form_for [ @room, @message ], remote: true do |f| %>
+  <%= f.input :content, label: false, placeholder: "Taper votre message..." %>
+<% end %>
