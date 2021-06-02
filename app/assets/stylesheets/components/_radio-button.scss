@@ -1,0 +1,38 @@
+.category-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.category-item {
+  flex: 0 0 30%;
+}
+
+.category-selector {
+  position: absolute;
+  transform: scale(0);
+}
+
+.category-selector + label {
+  display: block;
+  cursor: pointer;
+  box-sizing: border-box;
+  width: 100%;
+  font-size: 12px;
+  text-align: center;
+  padding: 10px 10px 30px 10px;
+  border-bottom: 1px solid #e0e0e0;
+  // border-radius: 4px;
+  background-color: white;
+  
+}
+
+.category-selector:checked + label {
+  color: rgb(0, 0, 0) !important;
+  background-color:rgb(235, 235, 235);
+}
+
+legend {
+  display: none;
+}
