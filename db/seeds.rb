@@ -9,7 +9,7 @@ User.delete_all
 Room.delete_all
 Topic.delete_all
 
-interests_list = %w[films séries animaux sport automobile dessin musique gastronomie randonnée vélo informatique jeux\ de\ société jeux\ vidéo]
+interests_list = %w[films séries animaux sport automobile dessin musique cuisine randonnée vélo informatique jeux\ de\ société jeux\ vidéo]
 interests_list.each do |interest|
   Interest.create!(name: interest)
 end
@@ -31,5 +31,8 @@ room3.interests = Interest.where(name: ["jeux vidéo"])
 
 
 user1 = User.create!(username: "toto", email: "toto@toto.com", password: "123456", age: 20)
+user1.interests = Interest.where(name: ["films", "automobile", "cuisine"])
 user2 = User.create!(username: "tutu", email: "tutu@tutu.com", password: "123456", age: 25)
+user2.interests = Interest.where(name: ["jeux vidéo", "randonnée"])
 user3 = User.create!(username: "tata", email: "tata@tata.com", password: "123456", age: 27)
+user3.interests = Interest.where(name: ["animaux", "vélo", "films", "informatique"])

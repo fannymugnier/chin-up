@@ -4,6 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  has_many :user_interests
+  has_many :interests, through: :user_interests
+
   validates :username, presence: true
   validates :username, uniqueness: true
   validates :age, numericality: { only_integer: true }
