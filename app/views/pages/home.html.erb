@@ -1,2 +1,68 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="cover mb-4 d-flex align-items-center justify-content-center text-white">
+  <h1>Chin-Up !</h1>
+</div>
+
+<div class="container">
+  <div class="searchbar">
+      <%= form_tag rooms_path, method: :get do %>
+        <div class="d-flex align-items-center">
+          <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "Rechercher un sujet..."
+          %>
+          <button type="submit" class="btn search-btn">
+            <i class='fas fa-search'></i>
+          </button>
+        </div>
+      <% end %>
+  </div>
+
+<br>
+
+<h2> Suggestions pour vous </h2>
+  <div class="card-container">
+    <% @rooms.each do |room| %>
+      <div class="card-room">
+        <h2 id="room-name"><%= room.name %></h2>
+        <div class="hide">
+          <div class="hover-description">
+            <p><%= room.description %></p>
+            <%= link_to 'Rejoindre', room_path(room, query: params[:query]), class: 'button' %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+<br>
+
+<h2> Les plus populaires </h2>
+  <div class="card-container">
+    <% @rooms.each do |room| %>
+      <div class="card-room">
+        <h2 id="room-name"><%= room.name %></h2>
+        <div class="hide">
+          <div class="hover-description">
+            <p><%= room.description %></p>
+            <%= link_to 'Rejoindre', room_path(room, query: params[:query]), class: 'button' %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<div class="footer">
+  <div class="footer-links">
+    Copyright 2021
+    <a href="#"><i class="fab fa-github"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-linkedin"></i></a>
+  </div>
+  <div class="footer-copyright">
+    Chin-up ! <i class="fas fa-heart"></i>
+  </div>
+</div>
+
+
