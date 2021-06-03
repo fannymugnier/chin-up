@@ -21,19 +21,18 @@
           <%= simple_form_for([@room, @message]) do |f| %>
           <%= hidden_field_tag :message_type, "topic" %>
             <% topics_array=[] %>
-            <% @room.topics.each { |topic| topics_array << topic.content } %>
-              <%# f.input_field :content, as: :radio_buttons, collection: topics_array, class: 'topic-input'%>
+            <% @room.topics.each { |topic| topics_array << topic.subject } %>
               <%= f.input :content,
-                                as: :radio_buttons,
-                                collection_wrapper_tag: 'div',
-                                collection_wrapper_class: 'category-wrapper',
-                                item_wrapper_class: 'category-item',
-                                input_html: {class: 'category-selector'},
-                                collection: topics_array %>
+                          as: :radio_buttons,
+                          collection_wrapper_tag: 'div',
+                          collection_wrapper_class: 'category-wrapper',
+                          item_wrapper_class: 'category-item',
+                          input_html: {class: 'category-selector'},
+                          collection: topics_array %>
 
-              <div class="button-field">
-                <%= f.button :submit, "Proposer" %>
-              </div>
+              <%# <div class="button-field"> %>
+                <%= f.button :submit, "Proposer", id: 'expand-btn', class: 'button-field' %>
+              <%# </div> %>
           <% end %>
         </div>
       </div>
@@ -62,10 +61,16 @@
   </aside>
 
   <div id="chat">
-    <div id="messages" data-chatroom-id="<%= @room.id %>">
-      <% @room.messages.each do |message| %>
-        <%= render "messages/message", message: message %>
-      <% end %>
+    <div id="scroll">
+      <div id="messages" data-chatroom-id="<%= @room.id %>">
+        <% @room.messages.each do |message| %>
+          <% if message.message_type == 'message' %>
+          <%= render "messages/message", message: message %>
+          <% else  %>
+          <%= render "messages/announce", message: message %>
+          <% end %>
+        <% end %>
+      </div>
     </div>
     <%= simple_form_for [ @room, @message ], remote: true do |f| %>
       <%= hidden_field_tag :message_type, "message" %>
