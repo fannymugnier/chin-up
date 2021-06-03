@@ -1,3 +1,3 @@
 class Topic < ApplicationRecord
-  validates :content, presence: true
+  validates :subject, presence: true
 end
