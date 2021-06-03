@@ -21,10 +21,11 @@ require("channels")
 // Note(lewagon): ABOVE IS RAILS DEFAULT CONFIGURATION
 // WRITE YOUR OWN JS STARTING FROM HERE 👇
 // ----------------------------------------------------
-import { expandBtn } from "../plugins/expand-btn"
 // External imports
 import "bootstrap";
 import { initRoomCable } from '../channels/room_channel'
+import { expandBtn } from "../plugins/expand-btn";
+
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 

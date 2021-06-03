@@ -43,6 +43,45 @@
           <h2>Sondages</h2>
         </button>
         <div class="expand-content">
+          <!-- Button trigger modal -->
+          
+          <button type="button" class="button-field created" data-toggle="modal" data-target="#exampleModalCenter">
+          <i class="fas fa-plus"></i>
+            Créer un nouveau sondage
+          </button>
+
+          <!-- Modal -->
+          <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLongTitle">Créer un nouveau sondage</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <%= simple_form_for [ @room, @survey ] do |f| %>
+                    <%= f.input :title,label: 'Question :', placeholder: "Votre question..." %>
+                    <div class="d-flex justify-content-between">
+                      <div class="d-flex flex-column">
+                        <%= f.input :first_proposition, label: 'Option 1 :', placeholder: "1ere proposition", class:"flex-grow-1" %>
+                        <%= f.input :first_photo, as: :file, label: false, input_html: { class: 'd-none' }, label_html: { class: 'upload-photo'}, label: '<i class="fas fa-camera"></i> <br> <br> Télécharger une photo'.html_safe %>
+                      </div>
+                      <div class="d-flex flex-column">
+                        <%= f.input :second_proposition, label: 'Option 2 :', placeholder: "2ème proposition", id: 'larger-input' %>
+                        <%= f.input :second_photo, as: :file, label: false, input_html: { class: 'd-none' }, label_html: { class: 'upload-photo'}, label: '<i class="fas fa-camera"></i> <br> <br> Télécharger une photo'.html_safe %>
+                      </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <%= f.button :submit, "Proposer", class: 'btn btn-primary' %>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
           <div class="surveys_status">
             <div class="ongoing-survey">
               <% if @ongoing_survey %>
