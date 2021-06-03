@@ -46,9 +46,11 @@
         <div class="expand-content">
           <div class="surveys_status">
             <div class="ongoing-survey">
-              <%= @ongoing_survey.title %>
-              <%= @ongoing_survey.first_proposition %>
-              <%= @ongoing_survey.second_proposition %>
+              <% if @ongoing_survey %>
+                <%= @ongoing_survey.title %>
+                <%= @ongoing_survey.first_proposition %>
+                <%= @ongoing_survey.second_proposition %>
+              <% end %>
             </div>
             <div class="closed-surveys">
               <p>closed</p>

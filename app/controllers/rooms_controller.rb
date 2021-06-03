@@ -3,7 +3,7 @@ class RoomsController < ApplicationController
   before_action :set_entities, only: :show
 
   def index
-    @rooms = policy_scope Room
+    @rooms = Room.all
   end
 
   def show
