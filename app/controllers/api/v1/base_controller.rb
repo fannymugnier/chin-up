@@ -5,12 +5,17 @@ class Api::V1::BaseController < ActionController::API
 
   def create
     @survey = Survey.new(survey_params)
-    @survey.room_id = Room.first.id
+    @survey.room_id = params[:room_id]
+    @survey.author_id = params[:author_id]
     if @survey.save
       render json: { success: true }, status: :ok
     else
       render json: { success: false }, status: :ok
     end
+  end
+
+  def display_results
+    @surveys = Survey.where(author_id: 1)
   end
 
   private

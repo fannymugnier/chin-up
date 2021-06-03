@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       get '/allrooms', to: 'base#index'
       post '/surveys', to: 'base#create'
+      get '/surveys/results', to: 'base#display_results'
     end
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
