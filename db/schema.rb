@@ -102,7 +102,7 @@ ActiveRecord::Schema.define(version: 2021_06_03_130022) do
   end
 
   create_table "topics", force: :cascade do |t|
-    t.string "content"
+    t.string "subject"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
