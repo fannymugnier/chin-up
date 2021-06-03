@@ -1,0 +1,16 @@
+.cover {
+  background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(asset_path('banner-home1.jpeg'));
+  height: 400px;
+  width: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+
+}
+
+.cover h1 {
+
+  font-size: 80px;
+  margin-top: 25px;
+
+}
