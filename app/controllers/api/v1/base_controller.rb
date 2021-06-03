@@ -1,7 +1,6 @@
 class Api::V1::BaseController < ActionController::API
-  def test
-    render  json: { hello: "world" },
-            status: :ok
+  def index
+    @rooms = Room.all
   end
 
   def create

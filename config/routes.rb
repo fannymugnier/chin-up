@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   end
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
-      get '/surveys', to: 'base#test'
+      get '/allrooms', to: 'base#index'
       post '/surveys', to: 'base#create'
     end
   end
