@@ -3,10 +3,9 @@ class AnswersController < ApplicationController
     @answer = Answer.new(answer_params)
     @answer.survey_id = params[:survey_id].to_i
     @answer.user = current_user
-    if @answer.save!
-      redirect_to room_path(@room)
-    else
-      render 'rooms/show'
+    @answer.save!
+    respond_to do |format|
+      format.js
     end
   end
 

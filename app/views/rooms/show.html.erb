@@ -101,9 +101,10 @@
                             collection: [@ongoing_survey.first_proposition, @ongoing_survey.second_proposition] %>
                       <%= f.button :submit, "Voter", id: 'expand-btn', class: 'button-field' %>
                     <% end %>
-                  <% else %>
-                    <p>Résultats :</p>
                   <% end %>
+                    <div id= "results" class="hidden">
+                      <p>Résultats :</p>
+                    </div>
                     <%# <%= cl_image_tag @ongoing_survey.first_photo.key, width: 200, height: 150, class:"survey-photo" %>
                     <%# <%= @ongoing_survey.first_proposition %>
                     <%# <%= cl_image_tag @ongoing_survey.second_photo.key, width: 200, height: 150, class:"survey-photo" %>
@@ -146,7 +147,7 @@
     </div>
     <%= simple_form_for [ @room, @message ], remote: true do |f| %>
       <%= hidden_field_tag :message_type, "message" %>
-      <%= f.input :content, label: false, placeholder: "Taper votre message..." %>
+      <%= f.input :content, autofocus: true, label: false, placeholder: "Taper votre message..." %>
     <% end %>
   </div>
 </div>
