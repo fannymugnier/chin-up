@@ -11,6 +11,7 @@ const initRoomCable = () => {
         messagesContainer.scrollTop = messagesContainer.scrollHeight;
       },
     });
+    console.log(Redis.new.pubsub("NUMPAT", "action_cable/*"))
   }
 }
 
