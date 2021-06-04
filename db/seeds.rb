@@ -32,9 +32,9 @@ room3.topics = Topic.all
 room3.interests = Interest.where(name: ["jeux vidéo"])
 
 
-file1 = URI.open('https://res.cloudinary.com/dayvtqlm1/image/upload/v1622212693/7qk61xjxj3mh9u7del7gl8xlclcj.jpg')
-file2 = URI.open('https://res.cloudinary.com/dayvtqlm1/image/upload/v1622212740/eycl4xl945tmwqu6k3068c823tzq.jpg')
-file3 = URI.open('https://res.cloudinary.com/dayvtqlm1/image/upload/v1622205778/iawasvottjfq9zczezhei56m8n7v.jpg')
+file1 = URI.open('https://res.cloudinary.com/dayvtqlm1/image/upload/v1622813252/j3jqz8v1rvcvf68rhnoa2pq6guyu.jpg')
+file2 = URI.open('https://res.cloudinary.com/dayvtqlm1/image/upload/v1622813251/5ibaq94061ek2zd9y5b05du4u5h6.jpg')
+file3 = URI.open('https://res.cloudinary.com/dayvtqlm1/image/upload/v1622813252/j3jqz8v1rvcvf68rhnoa2pq6guyu.jpg')
 
 
 user1 = User.create!(username: "toto", email: "toto@toto.com", password: "123456", age: 20)
