@@ -2,8 +2,9 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
   resources :rooms, only: [:index, :show] do
-    resources :messages, only: [:create]
-    resources :surveys, only: [:create]
+    resources :messages, only: :create
+    resources :surveys, only: :create
+    resources :answers, only: :create
   end
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
