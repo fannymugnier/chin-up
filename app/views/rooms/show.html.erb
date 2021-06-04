@@ -7,13 +7,14 @@
       <div class="col">
         <div class="d-flex justify-content-between align-items-center">
           <h4><%= @room.name %></h4>
-          <span> <%= pluralize(User.count, "participant")%> </span>
+          <span> <%= pluralize(@room.users.count, "participant")%> </span>
         </div>
         <div class="d-flex justify-content-between align-items-center">
+          <%= ActionCable.server.connections.length %>
           <span> <%= @room.description %> </span>
-          <div class="avatar">
+          <div class="avatar d-flex">
             <% @room.users.each do |user| %>
-            <%= cl_image_tag(user.photo.key, class: "avatar-message") %>
+            <%= cl_image_tag(user.photo.key, crop: :thumb, gravity: :face, class:"avatar-message") %>
             <% end  %>
           </div>
         </div>
