@@ -8,6 +8,7 @@ const initRoomCable = () => {
     consumer.subscriptions.create({ channel: "RoomChannel", id: id }, {
       received(data) {
         messagesContainer.insertAdjacentHTML('beforeend', data);
+        messagesContainer.scrollTop = messagesContainer.scrollHeight;
       },
     });
   }
