@@ -1,16 +1,27 @@
 <div class="main-page">
   <aside class="sidebar">
     <%# Image de la room %>
-    <section class="room-name ">
-      <div class="card-room card-chatroom">
-        <h2 id="room-name"><%= @room.name %></h2>
-        <div class="hide">
-          <div class="hover-description">
-            <p><%= @room.description %></p>
+  <div class = "upper-left-room">
+    <div class="row">
+      <%= link_to "", rooms_path, class:"exit-logo" %>
+      <div class="col">
+        <div class="d-flex justify-content-between align-items-center">
+          <h4><%= @room.name %></h4>
+          <span> <%= pluralize(User.count, "participant")%> </span>
+        </div>
+        <div class="d-flex justify-content-between align-items-center">
+          <span> <%= @room.description %> </span>
+          <div class="avatar">
+            <% @room.users.each do |user| %>
+            <%= cl_image_tag(user.photo.key, class: "avatar-message") %>
+            <% end  %>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </div>
+
+
     <%# Sondage et autres %>
     <section class="room-topic">
       <div class="expand">
