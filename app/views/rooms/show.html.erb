@@ -1,16 +1,27 @@
 <div class="main-page">
   <aside class="sidebar">
     <%# Image de la room %>
-    <section class="room-name ">
-      <div class="card-room card-chatroom">
-        <h2 id="room-name"><%= @room.name %></h2>
-        <div class="hide">
-          <div class="hover-description">
-            <p><%= @room.description %></p>
+  <div class = "upper-left-room">
+    <div class="row">
+      <%= link_to "", rooms_path, class:"exit-logo" %>
+      <div class="col">
+        <div class="d-flex justify-content-between align-items-center">
+          <h4><%= @room.name %></h4>
+          <span> <%= pluralize(User.count, "participant")%> </span>
+        </div>
+        <div class="d-flex justify-content-between align-items-center">
+          <span> <%= @room.description %> </span>
+          <div class="avatar">
+            <% @room.users.each do |user| %>
+            <%= cl_image_tag(user.photo.key, class: "avatar-message") %>
+            <% end  %>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </div>
+
+
     <%# Sondage et autres %>
     <section class="room-topic">
       <div class="expand">
@@ -109,7 +120,7 @@
                               <div><%= @ongoing_survey.second_proposition %> : <%= @ongoing_survey.answers.where(selected_proposition: @ongoing_survey.second_proposition).count %></div>
                             </div>
 
-                        <div class="poll" id="sondage-<%= @ongoing_survey.id %>">
+                        <div class="results poll hidden" id="sondage-<%= @ongoing_survey.id %>">
                         <% if @ongoing_survey.answers.where(selected_proposition: @ongoing_survey.first_proposition).count.fdiv(@ongoing_survey.answers.count) == 0.0 %>
                           <div class="proposition first" style="display: none">
                           </div>
@@ -172,7 +183,7 @@
     </div>
     <%= simple_form_for [ @room, @message ], remote: true do |f| %>
       <%= hidden_field_tag :message_type, "message" %>
-      <%= f.input :content, label: false, placeholder: "Taper votre message..." %>
+      <%= f.input :content, autofocus: true, label: false, placeholder: "Taper votre message..." %>
     <% end %>
   </div>
 </div>

@@ -1,0 +1,19 @@
+.exit-logo {
+  background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)),
+  image-url("exit.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 24px;
+  height: 24px;
+  margin-left: 18px;
+}
+
+.upper-left-room {
+  padding: 15px;
+  width: 100%;
+  background-color: white;
+  border-radius: 15px;
+  border: 1px solid #e0e0e0ad;
+  text-align: center;
+}

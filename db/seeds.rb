@@ -1,9 +1,11 @@
+require "open-uri"
+
 RoomInterest.delete_all
 RoomTopic.delete_all
 UserInterest.delete_all
 Message.delete_all
-Survey.delete_all
 Answer.delete_all
+Survey.delete_all
 Interest.delete_all
 User.delete_all
 Room.delete_all
@@ -30,9 +32,17 @@ room3.topics = Topic.all
 room3.interests = Interest.where(name: ["jeux vidéo"])
 
 
+file1 = URI.open('https://res.cloudinary.com/dayvtqlm1/image/upload/v1622813252/j3jqz8v1rvcvf68rhnoa2pq6guyu.jpg')
+file2 = URI.open('https://res.cloudinary.com/dayvtqlm1/image/upload/v1622813251/5ibaq94061ek2zd9y5b05du4u5h6.jpg')
+file3 = URI.open('https://res.cloudinary.com/dayvtqlm1/image/upload/v1622813252/j3jqz8v1rvcvf68rhnoa2pq6guyu.jpg')
+
+
 user1 = User.create!(username: "toto", email: "toto@toto.com", password: "123456", age: 20)
 user1.interests = Interest.where(name: ["films", "automobile", "cuisine"])
+user1.photo.attach(io: file1, filename: 'user1.png', content_type: 'image/png')
 user2 = User.create!(username: "tutu", email: "tutu@tutu.com", password: "123456", age: 25)
 user2.interests = Interest.where(name: ["jeux vidéo", "randonnée"])
+user2.photo.attach(io: file2, filename: 'user2.png', content_type: 'image/png')
 user3 = User.create!(username: "tata", email: "tata@tata.com", password: "123456", age: 27)
 user3.interests = Interest.where(name: ["animaux", "vélo", "films", "informatique"])
+user3.photo.attach(io: file3, filename: 'user3.png', content_type: 'image/png')
