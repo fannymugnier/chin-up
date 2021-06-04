@@ -8,6 +8,7 @@ class RoomsController < ApplicationController
 
   def show
     @ongoing_survey = @room.surveys.find_by(status: "open")
+    @closed_surveys = @room.surveys.where(status: "closed")
   end
 
   private
@@ -19,5 +20,6 @@ class RoomsController < ApplicationController
   def set_entities
     @survey = Survey.new
     @message = Message.new
+    @answer = Answer.new
   end
 end
