@@ -10,9 +10,11 @@
           <span> <%= pluralize(User.count, "participant")%> </span>
         </div>
         <div class="d-flex justify-content-between align-items-center">
-          <span> Description de la room ! </span>
+          <span> <%= @room.description %> </span>
           <div class="avatar">
-            <img class="avatar" src="https://kitt.lewagon.com/placeholder/users/ssaunier">
+            <% @room.users.each do |user| %>
+            <%= cl_image_tag(user.photo.key, class: "avatar-message") %>
+            <% end  %>
           </div>
         </div>
       </div>
