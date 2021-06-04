@@ -17,7 +17,7 @@ class MessagesController < ApplicationController
           render_to_string(partial: "messages/announce", locals: { message: @message })
         )
       end
-      redirect_to room_path(@room, anchor: "message-#{@message.id}")
+      redirect_to room_path(@room)
     else
       render 'rooms/show'
     end
