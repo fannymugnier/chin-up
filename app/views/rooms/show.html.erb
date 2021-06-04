@@ -146,7 +146,7 @@
     </div>
     <%= simple_form_for [ @room, @message ], remote: true do |f| %>
       <%= hidden_field_tag :message_type, "message" %>
-      <%= f.input :content, label: false, placeholder: "Taper votre message..." %>
+      <%= f.input :content, autofocus: true, label: false, placeholder: "Taper votre message..." %>
     <% end %>
   </div>
 </div>

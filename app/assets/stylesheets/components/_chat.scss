@@ -6,3 +6,12 @@
 #chat {
   height: 89vh;
 }
+
+.chat-message {
+  overflow-wrap: anywhere;
+}
+
+.message-time {
+  font-size: 0.75rem;
+  color: #868585;
+}
