@@ -50,6 +50,7 @@ legend {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  aign-items: center;
 }
 
 .answer-item {
@@ -75,21 +76,7 @@ legend {
   border-right: 1px solid $lightGrey;
   // border-radius: 4px;
   background-color: white;
-
-  // cursor: pointer;
-  // box-sizing: border-box;
-  // width: 100%;
-  // font-size: 1rem;
-  // text-align: center;
-  // padding: 20px 10px 20px 10px;
-  // border-bottom: 1px solid #e0e0e0ad;
-  // border-left: 1px solid #e0e0e0ad;
-  // border-right: 1px solid #e0e0e0ad;
-  // background-color: white;
-  // height: 150px;
-  // width: 300px;
-  // vertical-align: bottom;
-  // padding-top: 7rem;
+  
   &:hover {
     background-color: #f5f5f5ad
   }
