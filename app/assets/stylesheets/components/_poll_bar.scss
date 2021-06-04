@@ -1,0 +1,33 @@
+/** @format */
+
+.poll {
+  height: 20px;
+  display: flex;
+  margin: 0;
+  border-radius: 10px;
+}
+
+.proposition {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 2s ease;
+}
+
+.first {
+  background: rgb(45, 16, 172);
+  color: #fff;
+  border-radius: 5px 0 0 5px;
+}
+
+#firstp {
+  background: rgb(45, 16, 172);
+  height: 8px;
+  width: 8px;
+}
+
+.second {
+  background: rgb(29, 173, 209);
+  color: #fff;
+  border-radius: 0 5px 5px 0;
+}

@@ -1,4 +1,4 @@
-
+$lightGrey: #e0e0e0ad;
 .upload-photo {
   border: 1px solid #d3d3d3;
   padding: 30px 9px;
@@ -26,4 +26,24 @@
 
 .modal-footer {
   border-top: none;
+}
+
+.ongoing-survey {
+  p {
+    background-color: transparent;
+  }
+}
+
+
+.survey-result {
+  background-color: #fff;
+  border-radius: 0 0 15px 15px;
+  border: 1px solid $lightGrey;
+  border-top: 0;
+  padding: 10px;
+}
+
+.no-hover:hover {
+  background-color: #fff;
+  
 }
