@@ -4,8 +4,12 @@ Rails.application.routes.draw do
   resources :rooms, only: [:index, :show] do
     resources :messages, only: :create
     resources :surveys, only: :create
+  end
+
+  resources :surveys, only: [] do
     resources :answers, only: :create
   end
+
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
       get '/allrooms', to: 'base#index'

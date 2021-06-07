@@ -1,17 +1,38 @@
 class AnswersController < ApplicationController
+  before_action :set_survey, only: [:create]
+
   def create
     @answer = Answer.new(answer_params)
-    @answer.survey_id = params[:survey_id].to_i
+    @answer.survey = @survey
     @answer.user = current_user
     @answer.save!
-    respond_to do |format|
-      format.js
-    end
+    broadcast_to_room
   end
 
   private
 
   def answer_params
     params.require(:answer).permit(:selected_proposition)
+  end
+
+  def set_survey
+    @survey = Survey.find(params[:survey_id])
+  end
+
+  def broadcast_to_room
+    @room = @answer.survey.room
+    RoomChannel.broadcast_to(
+      @room,
+      {
+        event: "new_vote",
+        data: {
+          survey_id: @survey.id,
+          first_proposition_count: @survey.first_proposition_count,
+          second_proposition_count: @survey.second_proposition_count,
+          first_proposition_percent: @survey.first_proposition_percent,
+          second_proposition_percent: @survey.second_proposition_percent
+        }
+      }.to_json
+    )
   end
 end

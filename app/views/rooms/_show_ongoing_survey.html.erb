@@ -1,0 +1,14 @@
+
+<hr>
+
+<div id="survey-<%= survey.id %>">
+  <h3><%= @ongoing_survey.title %> (sondage en cours)</h3>
+  <div class="ongoing-vote">
+    <%= render 'show_ongoing_survey_vote.html', survey: survey %>
+  </div>
+
+  <div class="ongoing-result">
+    <%= render 'show_ongoing_survey_results.html', survey: survey %>
+  </div>
+</div>
+<hr>

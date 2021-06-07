@@ -1,0 +1,12 @@
+<hr>
+  <%= simple_form_for [ survey, Answer.new ], remote: true do |f| %>
+      <%= f.input :selected_proposition,
+            as: :radio_buttons,
+            collection_wrapper_tag: 'div',
+            collection_wrapper_class: 'answers-wrapper',
+            item_wrapper_class: 'answer-item',
+            input_html: {class: 'answer-selector'},
+            collection: [survey.first_proposition, survey.second_proposition] %>
+      <%= f.button :submit, "Voter", id: 'expand-btn', class: 'button-field' %>
+  <% end %>
+<hr>

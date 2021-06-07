@@ -9,12 +9,27 @@ class MessagesController < ApplicationController
       if @message.message_type == "message"
         RoomChannel.broadcast_to(
           @room,
-          render_to_string(partial: "message", locals: { message: @message })
+          {
+            event: "new_message",
+            message: @message.content,
+            html: render_to_string(partial: "message", locals: { message: @message })
+          }.to_json
+        )
+      elsif @message.message_type == "topic"
+        RoomChannel.broadcast_to(
+          @room,
+          {
+            event: "new_topic_announce",
+            html: render_to_string(partial: "messages/announce", locals: { message: @message })
+          }.to_json
         )
       else
         RoomChannel.broadcast_to(
           @room,
-          render_to_string(partial: "messages/announce", locals: { message: @message })
+          {
+            event: "new_survey_announce",
+            html: render_to_string(partial: "messages/announce", locals: { message: @message })
+          }.to_json
         )
       end
       redirect_to room_path(@room)
