@@ -2,8 +2,17 @@ class RoomsController < ApplicationController
   before_action :set_room, only: :show
   before_action :set_entities, only: :show
 
-  def index
-    @rooms = Room.all
+ def index
+  @rooms = Room.all
+  if params[:query].present?
+    sql = " \
+      rooms.name @@ :query \
+      OR interests.name @@ :query \
+      "
+      @rooms = Room.joins(:interests).where(sql, query: "%#{params[:query]}%").distinct
+    else
+      @rooms = Room.all
+    end
   end
 
   def show
