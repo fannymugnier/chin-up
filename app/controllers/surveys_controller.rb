@@ -8,9 +8,13 @@ class SurveysController < ApplicationController
       @message = Message.create(room: @room, content: 'a lancé un nouveau sondage.', message_type: 'announce', user: current_user)
       RoomChannel.broadcast_to(
         @room,
-        render_to_string(partial: "messages/announce", locals: { message: @message })
+        {
+          event: "new_survey_announce",
+          html: render_to_string(partial: "messages/announce", locals: { message: @message }),
+          voteHtml: render_to_string(partial: "vote", locals: { survey: @survey, answer: Answer.new })
+        }.to_json
       )
-      redirect_to room_path(@room, anchor: "message-#{@message.id}")
+      redirect_to room_path(@room)
     else
       render "rooms/show"
     end

@@ -4,10 +4,7 @@ class AnswersController < ApplicationController
     @answer.survey_id = params[:survey_id].to_i
     @answer.user = current_user
     @answer.save!
-    # broadcast_to_room
-    respond_to do |format|
-      format.js
-    end
+    broadcast_to_room
   end
 
   private
@@ -20,9 +17,10 @@ class AnswersController < ApplicationController
     @room = @answer.survey.room
     RoomChannel.broadcast_to(
       @room,
-      render_to_string('survey', locals: { survey: @survey })
+      {
+        event: "new_vote",
+        resultsHtml: render_to_string(partial: "surveys/survey_results", locals: { survey: @answer.survey })
+      }.to_json
     )
   end
 end
-
-

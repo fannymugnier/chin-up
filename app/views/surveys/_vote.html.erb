@@ -1,0 +1,42 @@
+<h3><%= survey.title %></h3>
+<%= simple_form_for [ survey.room, answer ], remote: true do |f| %>
+  <%= hidden_field_tag :survey_id, survey.id %>
+  <%= f.input :selected_proposition,
+        as: :radio_buttons,
+        collection_wrapper_tag: 'div',
+        collection_wrapper_class: 'answers-wrapper',
+        item_wrapper_class: 'answer-item',
+        input_html: {class: 'answer-selector'},
+        collection: [survey.first_proposition, survey.second_proposition] %>
+  <%= f.button :submit, "Voter", id: 'expand-btn', class: 'button-field' %>
+<% end %>
+<div id="survey-results">
+  <p>Résultats :</p>
+  <!-- poll bar -->
+  <div class="result-wrap">
+    <h5><%= survey.title %> </h5>
+        <div class="d-flex justify-content-between">
+          <div><%= survey.first_proposition %> : <%= survey.answers.where(selected_proposition: survey.first_proposition).count %></div>
+          <div><%= survey.second_proposition %> : <%= survey.answers.where(selected_proposition: survey.second_proposition).count %></div>
+        </div>
+
+    <div class="results poll " id="sondage-<%= survey.id %>">
+    <% if survey.answers.where(selected_proposition: survey.first_proposition).count.fdiv(survey.answers.count) == 0.0 %>
+      <div class="proposition first" style="display: none">
+      </div>
+    <% else %>
+      <div class="proposition first" style="width: <%= survey.answers.where(selected_proposition: survey.first_proposition).count.fdiv(survey.answers.count) * 100 %>%">
+      </div>
+    <% end %>
+    <% if survey.answers.where(selected_proposition: survey.second_proposition).count.fdiv(survey.answers.count) == 0.0 %>
+      <div class="proposition second" style="display: none" >
+      </div>
+    <% else %>
+      <div class="proposition second" style="width: <%= survey.answers.where(selected_proposition: survey.second_proposition).count.fdiv(survey.answers.count) * 100 %>%">
+      </div>
+    <% end %>
+    </div>
+  </div>
+</div>
+
+<%#<%= render "surveys/survey_results", survey: survey %>
