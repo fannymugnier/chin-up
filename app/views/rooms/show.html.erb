@@ -93,21 +93,8 @@
             <div>
               <div id="survey-container" class="ongoing-survey">
                 <% if @ongoing_survey %>
-                <div id="you-can-vote">
-                    <h3><%= @ongoing_survey.title %></h3>
-                    <%= simple_form_for [ @room, @answer ], remote: true do |f| %>
-                      <%= hidden_field_tag :survey_id, @ongoing_survey.id %>
-                      <%= f.input :selected_proposition,
-                            as: :radio_buttons,
-                            collection_wrapper_tag: 'div',
-                            collection_wrapper_class: 'answers-wrapper',
-                            item_wrapper_class: 'answer-item',
-                            input_html: {class: 'answer-selector'},
-                            collection: [@ongoing_survey.first_proposition, @ongoing_survey.second_proposition] %>
-                      <%= f.button :submit, "Voter", id: 'expand-btn', class: 'button-field' %>
-                      </div>
-                    <% end %>
 
+                  <%= render 'show_ongoing_survey.html', survey: @ongoing_survey %>
                   <!-- end of bar -->
                   <%# <%= cl_image_tag @ongoing_survey.first_photo.key, width: 200, height: 150, class:"survey-photo" %>
                   <%# <%= @ongoing_survey.first_proposition %>

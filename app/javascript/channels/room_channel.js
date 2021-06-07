@@ -1,5 +1,22 @@
 import consumer from "./consumer";
 import { expandBtn } from "../plugins/expand-btn";
+
+const updatePoll = (data) => {
+  const surveyId = data.survey_id
+  const firstPropositionCount = data.first_proposition_count
+  const secondPropositionCount = data.second_proposition_count
+  const firstPropositionPercent = data.first_proposition_percent
+  const secondPropositionPercent = data.second_proposition_percent
+
+  const surveyElement = document.querySelector(`#survey-${surveyId}`)
+  const surveyResultWrap = surveyElement.querySelector('.result-wrap')
+  surveyResultWrap.querySelector('.first-prop-count').innerText = firstPropositionCount
+  surveyResultWrap.querySelector('.second-prop-count').innerText = secondPropositionCount
+
+  surveyResultWrap.querySelector('.results-poll .proposition.first').style.width = `${firstPropositionPercent}%`
+  surveyResultWrap.querySelector('.results-poll .proposition.second').style.width = `${secondPropositionPercent}%`
+}
+
 const initRoomCable = () => {
   const messagesContainer = document.getElementById('messages');
 
@@ -11,7 +28,6 @@ const initRoomCable = () => {
       received(data) {
         const surveyContainer = document.querySelector("#survey-container");
         const surveyResultsContainer = document.querySelector("#survey-results");
-        const votingElement = document.querySelector("#you-can-vote");
         const dataParsed = JSON.parse(data)
         console.log(dataParsed)
         if (dataParsed.event == "new_message") {
@@ -26,7 +42,9 @@ const initRoomCable = () => {
           messagesContainer.scrollTop = messagesContainer.scrollHeight;
           surveyContainer.insertAdjacentHTML('beforeend', dataParsed.voteHtml)
         } else if (dataParsed.event == "new_vote") {
-          surveyResultsContainer.innerHTML = dataParsed.resultsHtml;
+          updatePoll(dataParsed.data)
+
+          // surveyResultsContainer.innerHTML = dataParsed.resultsHtml;
         }
 
         // else if (dataParsed.event == "new_survey")

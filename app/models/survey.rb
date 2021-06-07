@@ -9,4 +9,25 @@ class Survey < ApplicationRecord
   validates :first_proposition, presence: true
   validates :second_proposition, presence: true
   validates :author, presence: true
+
+
+  def first_proposition_count
+    answers.where(selected_proposition: first_proposition).count
+  end
+
+  def second_proposition_count
+    answers.where(selected_proposition: second_proposition).count
+  end
+
+  def first_proposition_percent
+    return if answers.count.zero?
+
+    first_proposition_count * 100 / answers.count
+  end
+
+  def second_proposition_percent
+    return if answers.count.zero?
+
+    second_proposition_count * 100 / answers.count
+  end
 end
