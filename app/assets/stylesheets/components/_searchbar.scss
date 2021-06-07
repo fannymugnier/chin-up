@@ -44,3 +44,14 @@
       }
     }
 }
+
+// searchbar on the index page
+#search-index {
+  display: flex;
+
+  form {
+    top: 0;
+    margin-top: 10px;
+    margin-bottom: 40px;
+  }
+}
