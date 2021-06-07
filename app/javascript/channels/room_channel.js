@@ -7,8 +7,14 @@ const initRoomCable = () => {
 
     consumer.subscriptions.create({ channel: "RoomChannel", id: id }, {
       received(data) {
+        console.log(data)
+        // if data == message
         messagesContainer.insertAdjacentHTML('beforeend', data);
         messagesContainer.scrollTop = messagesContainer.scrollHeight;
+
+
+        // # if data is sondage
+        //   replaceHTML
       },
     });
   }
