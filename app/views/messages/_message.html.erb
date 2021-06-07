@@ -14,7 +14,7 @@
   <button type="button" class="user-button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     <span class="font-italic"><%= message.user.username %></span> 
   </button>
-  <div id="dropdown-menu-custom" class="dropdown-menu p-4 slideIn">
+  <div id="dropdown-menu-custom" class="dropdown-menu p-4">
     <!-- Dropdown menu links -->
     <div class="d-flex justify-content-center mt-2 mb-2">
       <%= cl_image_tag(message.user.photo.key, crop: :thumb, gravity: :face, class:"avatar-dropdown") %>
