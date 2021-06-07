@@ -5,15 +5,15 @@ class RoomsController < ApplicationController
  def index
   @rooms = Room.all
   if params[:query].present?
-    sql = " \
-      rooms.name @@ :query \
-      OR interests.name @@ :query \
-      "
-      @rooms = Room.joins(:interests).where(sql, query: "%#{params[:query]}%").distinct
-    else
-      @rooms = Room.all
-    end
+  sql = " \
+    rooms.name @@ :query \
+    OR interests.name @@ :query \
+    "
+    @rooms = Room.joins(:interests).where(sql, query: "%#{params[:query]}%").distinct
+  else
+    @rooms = Room.all
   end
+end
 
   def show
     @ongoing_survey = @room.surveys.find_by(status: "open")
