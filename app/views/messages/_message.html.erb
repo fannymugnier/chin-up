@@ -9,7 +9,32 @@
 <div class="message-container d-flex" id="message-<%= message.id %>">
   <%= cl_image_tag(message.user.photo.key, crop: :thumb, gravity: :face, class:"avatar-message") %>
   <div class="ml-2 chat-message">
-    <span class="font-italic"><%= message.user.username %></span> <span class="font-italic message-time"><%= message.created_at.strftime('%R') %></span>
+
+  <div class="btn-group dropright">
+  <button type="button" class="user-button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <span class="font-italic"><%= message.user.username %></span> 
+  </button>
+  <div id="dropdown-menu-custom" class="dropdown-menu p-4 slideIn">
+    <!-- Dropdown menu links -->
+    <div class="d-flex justify-content-center mt-2 mb-2">
+      <%= cl_image_tag(message.user.photo.key, crop: :thumb, gravity: :face, class:"avatar-dropdown") %>
+    </div>
+    <h4 class="text-center"><%= message.user.username %></h4>
+    <p class="mb-1">Age : <%= message.user.age %></p>
+    <p class="mb-1">Ses centres d'intérêt :</p>
+      <div class="grid-dropdown">
+        <% message.user.interests.each do |interest|%>
+          <div class="grid-item-dropdown">
+            <div class="stars"><p>✮</p> <%= interest.name %></div>
+          </div>
+        <% end %>
+      </div>
+    <%= link_to "Ajouter en ami", '#', class: 'button-rounded' %>
+    <%= link_to "...", '#', class: 'fake-more' %>
+  </div>
+</div>
+    
+    <span class="font-italic message-time"><%= message.created_at.strftime('%R') %></span>
     <p><%= message.content %></p>
   </div>
 </div>

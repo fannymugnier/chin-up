@@ -1,0 +1,33 @@
+
+.user-button {
+  border: none;
+  background: transparent;
+}
+
+#dropdown-menu-custom {
+  width: 270px;
+  border-radius: 15px;
+  border: none;
+  box-shadow: 0 0 30px 1px rgba(0, 0, 0, 0.1);
+}
+
+.avatar-dropdown {
+  border-radius: 50%;
+  width: 150px;
+}
+
+.grid-dropdown {
+  display: grid;
+  grid-template-columns: auto auto;
+  margin-left: 8px;
+  margin-bottom:20px;
+}
+
+.stars {
+  display: flex;
+
+  p {
+    color: rgb(0, 132, 255);
+    margin-right: 4px;
+  }
+}
