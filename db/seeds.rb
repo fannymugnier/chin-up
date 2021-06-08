@@ -21,15 +21,24 @@ topics_list.each do |topic|
   Topic.create!(subject: topic)
 end
 
-room1 = Room.create!(name: "Cinéma", description: "Tout et n'importe quoi autour du cinéma.")
+room1 = Room.create!(name: "Cinéma", description: "Tout et n'importe quoi autour du cinéma. 🎬")
 room1.topics = Topic.all
 room1.interests = Interest.where(name: ["films", "séries"])
-room2 = Room.create!(name: "Sport", description: "Tout sur le sport.")
+room2 = Room.create!(name: "Sport", description: "Tout sur le sport. 🏋🏻")
 room2.topics = Topic.all
 room2.interests = Interest.where(name: ["sport", "randonnée", "vélo"])
-room3 = Room.create!(name: "Jeux vidéo", description: "Venez parler jeux vidéo !")
+room3 = Room.create!(name: "Jeux vidéo", description: "Venez parler jeux vidéo ! 🎮")
 room3.topics = Topic.all
-room3.interests = Interest.where(name: ["jeux vidéo"])
+room3.interests = Interest.where(name: ["jeux vidéo", "gaming"])
+room4 = Room.create!(name: "Cuisine", description: "Toutes les astuces de cuisine. 👨🏻‍🍳")
+room4.topics = Topic.all
+room4.interests = Interest.where(name: ["cuisine", "recette"])
+room5 = Room.create!(name: "Automobile", description: "À fond sur l'actualité auto ! 🚗")
+room5.topics = Topic.all
+room5.interests = Interest.where(name: ["auto", "voiture"])
+room6 = Room.create!(name: "Animaux", description: "Venez parler de votre toutou ! 🐶😺")
+room6.topics = Topic.all
+room6.interests = Interest.where(name: ["animaux", "chat", "chien"])
 
 
 file1 = URI.open('https://res.cloudinary.com/dayvtqlm1/image/upload/v1622813252/j3jqz8v1rvcvf68rhnoa2pq6guyu.jpg')
