@@ -8,6 +8,8 @@
         <div>
           <h4><%= @room.name %></h4>
           <p><%= @room.description %></p>
+          <%= @users_in_room %>
+          <%= @users_in_room.count %>
           <%# <span> <%= pluralize(ActionCable.server.connections.length, "participant")%> <%#</span>
         </div>
         <div class="d-flex justify-content-between align-items-center">

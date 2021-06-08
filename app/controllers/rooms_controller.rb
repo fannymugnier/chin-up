@@ -18,6 +18,10 @@ class RoomsController < ApplicationController
   def show
     @ongoing_survey = @room.surveys.find_by(status: "open")
     @closed_surveys = @room.surveys.where(status: "closed")
+    @users_in_room = []
+    @room.online_users.each do |user|
+      @users_in_room << User.find(user)
+    end
   end
 
   private

@@ -24,7 +24,7 @@ const initRoomCable = () => {
   if (messagesContainer) {
     const id = messagesContainer.dataset.chatroomId;
 
-    consumer.subscriptions.create({ channel: "RoomChannel", id: id }, {
+    const a = consumer.subscriptions.create({ channel: "RoomChannel", id: id }, {
       received(data) {
         const surveyContainer = document.querySelector("#survey-container");
         const surveyResultsContainer = document.querySelector("#survey-results");
@@ -44,23 +44,17 @@ const initRoomCable = () => {
         } else if (dataParsed.event == "new_vote") {
           updatePoll(dataParsed.data)
 
-          // surveyResultsContainer.innerHTML = dataParsed.resultsHtml;
         }
+      }
 
-        // else if (dataParsed.event == "new_survey")
-        // if (data.classList.contains('message-container')) {
-        //
-        //
-        // }
-
-        // if (data.classList.contains('survey-result')) {
-        //   messagesContainer.innerHTML('beforeend', data);
-        //   messagesContainer.scrollTop = messagesContainer.scrollHeight;
-        // }
-
-      },
     });
+    const logOutDiv = document.querySelector('.exit-logo')
+
+    logOutDiv.addEventListener('click', (e) => {
+      a.unsubscribe();
+    })
   }
+
 }
 
 export { initRoomCable };
