@@ -24,15 +24,7 @@
   <h2> Suggestions pour vous </h2>
     <div class="card-container">
       <% @suggested_rooms.each do |room| %>
-        <div class="card-room">
-          <h2 id="room-name"><%= room.name %></h2>
-          <div class="hide">
-            <div class="hover-description">
-              <p><%= room.description %></p>
-              <%= link_to 'Rejoindre', room_path(room, query: params[:query]), class: 'button' %>
-            </div>
-          </div>
-        </div>
+        <%= render 'shared/room_card', room: room %>
       <% end %>
     </div>
 
@@ -42,15 +34,7 @@
   <h2> Les plus populaires </h2>
     <div class="card-container">
       <% @rooms.each do |room| %>
-        <div class="card-room">
-          <h2 id="room-name"><%= room.name %></h2>
-          <div class="hide">
-            <div class="hover-description">
-              <p><%= room.description %></p>
-              <%= link_to 'Rejoindre', room_path(room, query: params[:query]), class: 'button' %>
-            </div>
-          </div>
-        </div>
+        <%= render 'shared/room_card', room: room %>
       <% end %>
     </div>
 </div>
