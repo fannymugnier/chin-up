@@ -20,7 +20,8 @@ class MessagesController < ApplicationController
           @room,
           {
             event: "new_topic_announce",
-            html: render_to_string(partial: "messages/announce", locals: { message: @message })
+            html: render_to_string(partial: "messages/announce", locals: { message: @message }),
+            content: @message.content
           }.to_json
         )
       else
