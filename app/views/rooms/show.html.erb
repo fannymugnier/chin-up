@@ -2,22 +2,20 @@
   <aside class="sidebar">
     <%# Image de la room %>
   <div class = "upper-left-room">
-    <div class="row">
-      <%= link_to "", rooms_path, class:"exit-logo" %>
-      <div class="col">
-        <div>
+    <div class="d-flex justify-content-between">
+      <div class="d-flex">
+        <%= link_to "", root_path, class:"exit-logo" %>
+        <div class="ml-2">
           <h4><%= @room.name %></h4>
           <p><%= @room.description %></p>
-          <%= @users_in_room %>
-          <%= @users_in_room.count %>
-          <%# <span> <%= pluralize(ActionCable.server.connections.length, "participant")%> <%#</span>
         </div>
-        <div class="d-flex justify-content-between align-items-center">
-          <div class="avatar d-flex">
-            <% @room.users.each do |user| %>
-              <%#<%= cl_image_tag(user.photo.key, crop: :thumb, gravity: :face, class:"avatar-message") %>
-            <%#<% end  %>
-          <%#</div>%>
+      </div>
+      <div>
+        <span><%= pluralize(@users_in_room.count, "chinner")%></span>
+        <div class="d-flex online-users flex-row-reverse">
+          <% @users_in_room.first(4).each do |user| %>
+            <%= cl_image_tag user.photo.key, class: "online-users-avatar" %>
+          <% end %>
         </div>
       </div>
     </div>

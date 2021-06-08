@@ -10,7 +10,6 @@ class RoomChannel < ApplicationCable::Channel
         room.online_users << c.current_user.id
         room.save!
       end
-      ap room.online_users
     end
     stream_for room
   end
@@ -20,7 +19,6 @@ class RoomChannel < ApplicationCable::Channel
     ap a
     ap current_user
     room = Room.find(params[:id])
-    # stop_stream_for room
-    # Any cleanup needed when channel is unsubscribed
+    room.online_users.delete_at(room.online_users.index(current_user.id))
   end
 end
