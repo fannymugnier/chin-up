@@ -29,7 +29,7 @@
           <h2>Proposer un sujet</h2>
         </button>
         <div class="expand-content">
-          <%= simple_form_for([@room, @message]) do |f| %>
+          <%= simple_form_for [@room, @message], remote: true do |f| %>
             <%= hidden_field_tag :message_type, "topic" %>
             <% topics_array=[] %>
             <% @room.topics.each { |topic| topics_array << topic.subject } %>
@@ -66,7 +66,7 @@
                   </button>
                 </div>
                 <div class="modal-body">
-                  <%= simple_form_for [ @room, @survey ] do |f| %>
+                  <%= simple_form_for [ @room, @survey ], remote: true do |f| %>
                     <%= f.input :title,label: 'Question :', placeholder: "Votre question..." %>
                     <div class="d-flex justify-content-between">
                       <div class="d-flex flex-column">
@@ -78,10 +78,8 @@
                         <%= f.input :second_photo, as: :file, label: false, input_html: { class: 'd-none' }, label_html: { class: 'upload-photo'}, label: '<i class="fas fa-camera"></i> <br> <br> Télécharger une photo'.html_safe %>
                       </div>
                     </div>
-                  </div>
-                  <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <%= f.button :submit, "Proposer", class: 'btn btn-primary' %>
+                    <%= f.submit "Proposer", class: 'btn btn-primary' %>
                   <% end %>
                 </div>
               </div>
@@ -123,6 +121,9 @@
   </aside>
   <div id="chat">
     <div id="scroll">
+    <div class="topic-banner">
+      <p>Sujet en cours : <span id="topic-banner-anchor"><%= @room.messages.where(message_type: "topic").last ? @room.messages.where(message_type: "topic").last.content : "Aucun sujet en cours." %></span></p>
+    </div>
       <div id="messages" data-chatroom-id="<%= @room.id %>">
         <% @room.messages.each do |message| %>
           <% if message.message_type == 'message' %>
