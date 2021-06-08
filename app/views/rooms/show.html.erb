@@ -66,7 +66,7 @@
                   </button>
                 </div>
                 <div class="modal-body">
-                  <%= simple_form_for [ @room, @survey ], remote: true do |f| %>
+                  <%= simple_form_for [ @room, @survey ] do |f| %>
                     <%= f.input :title,label: 'Question :', placeholder: "Votre question..." %>
                     <div class="d-flex justify-content-between">
                       <div class="d-flex flex-column">
@@ -122,7 +122,7 @@
   <div id="chat">
     <div id="scroll">
     <div class="topic-banner">
-      <p>Sujet en cours : <span id="topic-banner-anchor"><%= @room.messages.where(message_type: "topic").last ? @room.messages.where(message_type: "topic").last.content : "Aucun sujet en cours." %></span></p>
+      <p>Sujet en cours : <span id="topic-banner-anchor"><%= @room.messages.where(message_type: "topic").last ? @room.messages.where(message_type: "topic").last.content : "Aucun sujet en cours" %></span></p>
     </div>
       <div id="messages" data-chatroom-id="<%= @room.id %>">
         <% @room.messages.each do |message| %>
