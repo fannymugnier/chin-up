@@ -47,10 +47,7 @@ legend {
 
 
 .answers-wrapper {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  aign-items: center;
+  // display: flex;
 }
 
 .answer-item {
@@ -67,23 +64,30 @@ legend {
   display: block;
   cursor: pointer;
   box-sizing: border-box;
-  width: 100%;
   font-size: 12px;
   text-align: center;
-  padding: 20px 10px 20px 10px;
-  border-bottom: 1px solid $lightGrey;
-  border-left: 1px solid $lightGrey;
-  border-right: 1px solid $lightGrey;
-  // border-radius: 4px;
-  background-color: white;
-  
+  border-radius: 4px;
+  height: 142px;
+  width: 380px;
+  background-position: center;
+  background-size: cover;
   &:hover {
     background-color: #f5f5f5ad
   }
-
+  
+}
+#proposition-text {
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: inherit;
+  p {
+    font-size: 32px;
+  }
 }
 
 .answer-selector:checked + label {
-  color: rgb(0, 0, 0) !important;
+  color: #fff!important;
   background-color:rgb(235, 235, 235);
 }

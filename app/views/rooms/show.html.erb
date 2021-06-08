@@ -66,19 +66,21 @@
                   </button>
                 </div>
                 <div class="modal-body">
-                  <%= simple_form_for [ @room, @survey ], remote: true do |f| %>
+                  <%= simple_form_for [ @room, @survey ] do |f| %>
                     <%= f.input :title,label: 'Question :', placeholder: "Votre question..." %>
                     <div class="d-flex justify-content-between">
                       <div class="d-flex flex-column">
                         <%= f.input :first_proposition, label: 'Option 1 :', placeholder: "1ere proposition", class:"flex-grow-1" %>
-                        <%= f.input :first_photo, as: :file, label: false, input_html: { class: 'd-none' }, label_html: { class: 'upload-photo'}, label: '<i class="fas fa-camera"></i> <br> <br> Télécharger une photo'.html_safe %>
+                        <%= f.input :first_photo, as: :file, label: false, input_html: { class: 'd-none', id: 'photo-input1' }, label_html: { class: 'upload-photo'}, label: '<i class="fas fa-camera"></i> <br> <br> Télécharger une photo'.html_safe %>
+                        <%= image_tag "", width: 300, class: "hidden photo-preview-all", id: "photo-preview1" %>
                       </div>
                       <div class="d-flex flex-column">
                         <%= f.input :second_proposition, label: 'Option 2 :', placeholder: "2ème proposition", id: 'larger-input' %>
-                        <%= f.input :second_photo, as: :file, label: false, input_html: { class: 'd-none' }, label_html: { class: 'upload-photo'}, label: '<i class="fas fa-camera"></i> <br> <br> Télécharger une photo'.html_safe %>
+                        <%= f.input :second_photo, as: :file, label: false, input_html: { class: 'd-none', id: 'photo-input2' }, label_html: { class: 'upload-photo'}, label: '<i class="fas fa-camera"></i> <br> <br> Télécharger une photo'.html_safe %>
+                        <%= image_tag "", width: 300, class: "hidden photo-preview-all", id: "photo-preview2" %>
                       </div>
                     </div>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
                     <%= f.submit "Proposer", class: 'btn btn-primary' %>
                   <% end %>
                 </div>
@@ -122,7 +124,7 @@
   <div id="chat">
     <div id="scroll">
     <div class="topic-banner">
-      <p>Sujet en cours : <span id="topic-banner-anchor"><%= @room.messages.where(message_type: "topic").last ? @room.messages.where(message_type: "topic").last.content : "Aucun sujet en cours." %></span></p>
+      <p>Sujet en cours : <span id="topic-banner-anchor"><%= @room.messages.where(message_type: "topic").last ? @room.messages.where(message_type: "topic").last.content : "Aucun sujet en cours" %></span></p>
     </div>
       <div id="messages" data-chatroom-id="<%= @room.id %>">
         <% @room.messages.each do |message| %>

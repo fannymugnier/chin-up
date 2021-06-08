@@ -1,5 +1,6 @@
 <div class="cover mb-4 d-flex align-items-center justify-content-center text-white">
   <h1>Chin-Up !</h1>
+<!--   Rajouter une petite phrase en dessous -->
 </div>
 
 <div class="container">
@@ -22,12 +23,13 @@
 
   <h2> Suggestions pour vous </h2>
     <div class="card-container">
-      <% @rooms.each do |room| %>
+      <% @suggested_rooms.each do |room| %>
         <%= render 'shared/room_card', room: room %>
       <% end %>
     </div>
 
   <br>
+
 
   <h2> Les plus populaires </h2>
     <div class="card-container">
