@@ -26,6 +26,8 @@ import "bootstrap";
 import { initRoomCable } from "../channels/room_channel";
 import { expandBtn } from "../plugins/expand-btn";
 import { initScrollToBottom } from "../plugins/chat_scroll_bottom";
+import { previewImageOnFileSelect1 } from "../plugins/photo_preview";
+import { previewImageOnFileSelect2 } from "../plugins/photo_preview";
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
@@ -36,4 +38,6 @@ document.addEventListener("turbolinks:load", () => {
   initRoomCable();
   expandBtn();
   initScrollToBottom();
+  previewImageOnFileSelect1();
+  previewImageOnFileSelect2();
 });
