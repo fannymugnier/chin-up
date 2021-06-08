@@ -6,14 +6,16 @@
   background-repeat: no-repeat;
   width: 24px;
   height: 24px;
-  margin-left: 18px;
+  margin-top: 4px;
 }
 
 .upper-left-room {
-  padding: 15px;
-  width: 100%;
+  padding: 1rem;
   background-color: white;
   border-radius: 15px;
   border: 1px solid #e0e0e0ad;
-  text-align: center;
+
+  & p {
+    margin-bottom: 0;
+  }
 }

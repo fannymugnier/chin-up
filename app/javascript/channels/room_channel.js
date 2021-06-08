@@ -27,7 +27,7 @@ const initRoomCable = () => {
   const messagesContainer = document.getElementById("messages");
   if (messagesContainer) {
     const id = messagesContainer.dataset.chatroomId;
-    consumer.subscriptions.create({ channel: "RoomChannel", id: id }, {
+    const a = consumer.subscriptions.create({ channel: "RoomChannel", id: id }, {
       received(data) {
         const surveyContainer = document.querySelector("#survey-container");
         const surveyResultsContainer = document.querySelector("#survey-results");
@@ -53,7 +53,12 @@ const initRoomCable = () => {
         },
       }
     );
-  }
+    const logOutDiv = document.querySelector('.exit-logo')
+
+    logOutDiv.addEventListener('click', (e) => {
+      a.unsubscribe();
+    })
+  } 
 };
 
 export { initRoomCable };
