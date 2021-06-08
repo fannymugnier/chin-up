@@ -78,10 +78,8 @@
                         <%= f.input :second_photo, as: :file, label: false, input_html: { class: 'd-none' }, label_html: { class: 'upload-photo'}, label: '<i class="fas fa-camera"></i> <br> <br> Télécharger une photo'.html_safe %>
                       </div>
                     </div>
-                  </div>
-                  <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <%= f.button :submit, "Proposer", class: 'btn btn-primary' %>
+                    <%= f.submit "Proposer", class: 'btn btn-primary' %>
                   <% end %>
                 </div>
               </div>
