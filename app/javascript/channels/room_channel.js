@@ -28,6 +28,7 @@ const initRoomCable = () => {
       received(data) {
         const surveyContainer = document.querySelector("#survey-container");
         const surveyResultsContainer = document.querySelector("#survey-results");
+        const voteElement = document.querySelector('.ongoing-vote');
         const dataParsed = JSON.parse(data)
         console.log(dataParsed)
         if (dataParsed.event == "new_message") {
@@ -43,7 +44,7 @@ const initRoomCable = () => {
           surveyContainer.insertAdjacentHTML('beforeend', dataParsed.voteHtml)
         } else if (dataParsed.event == "new_vote") {
           updatePoll(dataParsed.data)
-
+          voteElement.classList.add("vote-hide")
           // surveyResultsContainer.innerHTML = dataParsed.resultsHtml;
         }
 
