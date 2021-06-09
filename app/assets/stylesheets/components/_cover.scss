@@ -1,5 +1,5 @@
 .cover {
-  background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(asset_path('banner-home1.jpeg'));
+  background-image: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.58)), url(asset_path('banner-home1.jpeg'));
   height: 400px;
   width: 100%;
   background-size: cover;
@@ -9,8 +9,11 @@
 }
 
 .cover h1 {
-
   font-size: 80px;
   margin-top: 25px;
+  text-shadow: 1px 1px #060606e8;
+}
 
+.cover h3 {
+  text-shadow: 1px 1px #060606e8;
 }

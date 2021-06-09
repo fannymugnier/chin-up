@@ -14,10 +14,9 @@ $randomNumber: random(200);
 }
 
 .card-container {
-  margin-top: 5px;
+  margin-top: 1rem;
   display: grid;
-  grid-row-gap: 10px;
-  grid-column-gap: 10px;
+  grid-gap: 1rem;
   grid-template-columns: 1fr 1fr 1fr;
 }
 
@@ -41,7 +40,7 @@ $randomNumber: random(200);
     background-color: #00000080;
     padding: 0.25rem 0.5rem;
     border-radius: 5px;
-    word-break: break-all;
+    font-size: 0.85rem;
   }
 }
 
@@ -56,4 +55,23 @@ $randomNumber: random(200);
   width: max-content;
   bottom: -55px;
   transition: all 0.4s ease;
+}
+
+.blinking{
+  animation:blinkingText 1.6s infinite;
+}
+@keyframes blinkingText{
+  50%{  opacity: 0; }
+}
+
+.modal-content-room-card {
+  border-radius: 0.75rem;
+  padding: 1rem 2rem;
+  & p {
+    margin: 0;
+  }
+}
+
+.modal-dialog-room-card {
+  max-width: 700px;
 }
