@@ -30,6 +30,7 @@ $randomNumber: random(200);
   color: #fff;
   transition: all 0.4s;
   padding: 1rem;
+  box-shadow: 1px 1px 1px #0000003d;
 
   // card growing a little big
   &:hover {

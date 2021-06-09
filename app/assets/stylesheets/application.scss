@@ -21,3 +21,26 @@ h1, h2, h3, h4, h5, h6, p, span {
   font-family: 'Poppons', sans-serif !important;
   font-weight: 200;
 }
+
+body {
+  background: rgb(255,230,185);
+  background: linear-gradient(0deg, #ffe6b9d4 0%, #fae3d7 47%, #fed8d8 100%);
+}
+
+.first-part {
+  padding: 0 2rem 3rem 2rem;
+  background-color: #fffefe30;
+  box-shadow: 0px 0px 1px #00000038;
+}
+
+.second-part {
+  padding: 0 2rem 3rem 2rem;
+  background-color: #fffefe30;
+  border-bottom-right-radius: 0.75rem;
+  border-bottom-left-radius: 0.75rem;
+  box-shadow: 0px 0px 1px #00000038;
+}
+
+.middle-part {
+  background-color: #0000009e;
+}
