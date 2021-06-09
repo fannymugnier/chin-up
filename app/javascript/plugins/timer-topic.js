@@ -76,6 +76,7 @@ const initTimer = () => {
 
           if (timeLeft === 0) {
             onTimesUp();
+            document.querySelector('.topic-banner').style.display = "none";
           }
         }, 1000);
       }

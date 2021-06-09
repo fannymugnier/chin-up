@@ -24,7 +24,8 @@
     <div class="topic-banner">
       <p>Sujet en cours : <span id="topic-banner-anchor"><%= @room.messages.where(message_type: "topic").last ? @room.messages.where(message_type: "topic").last.content : "Aucun sujet en cours." %></span>
       </p>
-      <div id="countdown" <%= "data-end-timer=#{@end_timer_in_seconds}" if @end_timer_in_seconds %>></div>
+      <div id="countdown" <%= "data-end-timer=#{@end_timer_in_seconds}" if @end_timer_in_seconds %>>
+      </div>
     </div>
   </div>
 
