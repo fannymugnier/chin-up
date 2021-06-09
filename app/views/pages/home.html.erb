@@ -9,9 +9,10 @@
     <%= form_tag rooms_path, method: :get do %>
       <div class="d-flex align-items-center">
         <%= text_field_tag :query,
-        params[:query],
-        class: "form-control",
-          placeholder: "Rechercher un sujet..."
+          params[:query],
+          class: "form-control",
+          placeholder: "Rechercher un sujet...",
+          autocomplete: 'off'
           %>
         <button type="submit" class="btn search-btn">
           <i class='fas fa-search'></i>
