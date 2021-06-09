@@ -22,6 +22,14 @@ class RoomsController < ApplicationController
     @room.online_users.each do |user|
       @users_in_room << User.find(user)
     end
+    @topics = @room.messages.where(message_type: 'topic')
+
+
+    @topics_pending = @topics.select do |topic|
+      topic.created_at > Time.zone.now - 10.minutes
+    end
+    @end_timer_in_seconds = ((@topics_pending.first.created_at + 10.minutes) - Time.zone.now).round unless @topics_pending.empty?
+
   end
 
   private
