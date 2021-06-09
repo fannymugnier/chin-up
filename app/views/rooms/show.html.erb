@@ -57,12 +57,11 @@
     </section>
     <section class="room-survey">
       <div class="expand">
-          <h2>Sondages</h2>
           <!-- Button trigger modal -->
-          <button type="button" class="button-field created" data-toggle="modal" data-target="#exampleModalCenter">
-            <i class="fas fa-plus"></i>
-            Créer un nouveau sondage
-          </button>
+            <button id="new-survey-btn" type="button" class="button-field created" data-toggle="modal" data-target="#exampleModalCenter">
+              <i class="fas fa-plus"></i>
+              Créer un nouveau sondage
+            </button>
           <!-- Modal -->
           <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
@@ -99,18 +98,12 @@
             </div>
           </div>
           <div class="surveys_status">
-            <!-- <span>En cours</span>
-            <span>Terminés</span> -->
             <div>
               <div id="survey-container" class="ongoing-survey">
                 <% if @ongoing_survey %>
-
-                  <%= render 'show_ongoing_survey.html', survey: @ongoing_survey %>
-                  <!-- end of bar -->
-                  <%# <%= cl_image_tag @ongoing_survey.first_photo.key, width: 200, height: 150, class:"survey-photo" %>
-                  <%# <%= @ongoing_survey.first_proposition %>
-                  <%# <%= cl_image_tag @ongoing_survey.second_photo.key, width: 200, height: 150, class:"survey-photo" %>
-                  <%# <%= @ongoing_survey.second_proposition %>
+                  <% @ongoing_survey.each do |survey| %>
+                    <%= render 'rooms/show_ongoing_survey', survey: survey %>
+                  <% end %>
                 <% end %>
 
               </div>

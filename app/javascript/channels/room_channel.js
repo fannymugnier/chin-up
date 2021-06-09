@@ -31,7 +31,6 @@ const initRoomCable = () => {
       received(data) {
         const surveyContainer = document.querySelector("#survey-container");
         const surveyResultsContainer = document.querySelector("#survey-results");
-        const voteElement = document.querySelector('.ongoing-vote');
         const topicBanner = document.querySelector("#topic-banner-anchor");
         const dataParsed = JSON.parse(data)
         if (dataParsed.event == "new_message") {
@@ -44,10 +43,20 @@ const initRoomCable = () => {
         } else if (dataParsed.event == "new_survey_announce") {
           messagesContainer.insertAdjacentHTML('beforeend', dataParsed.html);
           messagesContainer.scrollTop = messagesContainer.scrollHeight;
-          surveyContainer.insertAdjacentHTML('beforeend', dataParsed.voteHtml)
+          surveyContainer.insertAdjacentHTML('beforeend', dataParsed.voteHtml);
         } else if (dataParsed.event == "new_vote") {
           updatePoll(dataParsed.data)
-          voteElement.classList.add("vote-hide")
+          if (dataParsed.data.first_proposition_count + dataParsed.data.second_proposition_count === dataParsed.data.number_of_users) {
+            const winDivElement = document.querySelector(`#winning-prop-survey${dataParsed.data.survey_id}`);
+            winDivElement.classList.remove("hidden")
+            if (dataParsed.data.first_proposition_count < dataParsed.data.second_proposition_count) {
+              winDivElement.insertAdjacentHTML('beforeend', `<p>${dataParsed.data.second_proposition} l'emporte ! 🎉</p>`)
+            } else if (dataParsed.data.first_proposition_count > dataParsed.data.second_proposition_count) {
+              winDivElement.insertAdjacentHTML('beforeend', `<p>${dataParsed.data.first_proposition} l'emporte ! 🎉</p>`)
+            } else {
+              winDivElement.insertAdjacentHTML('beforeend', "<p>Ex-æquo ! 🤷‍♂️</p>")
+            }
+          }
         }
         },
       }
@@ -57,7 +66,7 @@ const initRoomCable = () => {
     logOutDiv.addEventListener('click', (e) => {
       a.unsubscribe();
     })
-  } 
+  }
 };
 
 export { initRoomCable };
