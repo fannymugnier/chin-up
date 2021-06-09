@@ -5,6 +5,7 @@ class SurveysController < ApplicationController
     @survey.room = @room
     @survey.author = current_user
     if @survey.save
+      attach_images
       @message = Message.create(room: @room, content: 'a lancé un nouveau sondage.', message_type: 'announce', user: current_user)
       RoomChannel.broadcast_to(
         @room,
@@ -21,6 +22,17 @@ class SurveysController < ApplicationController
   end
 
   private
+
+  def attach_images
+    file1 = URI.open(
+      params.dig('survey', 'url_first_image')
+    )
+    @survey.first_photo.attach(io: file1, filename: params.dig('survey', 'first_proposition'), content_type: file1.meta['content-type'] )
+    file2 = URI.open(
+      params.dig('survey', 'url_second_image')
+    )
+    @survey.second_photo.attach(io: file2, filename: params.dig('survey', 'second_proposition'), content_type: file2.meta['content-type'] )
+  end
 
   def survey_params
     params.require(:survey).permit(:title, :first_proposition, :second_proposition, :first_photo, :second_photo)
