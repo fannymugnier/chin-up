@@ -58,7 +58,7 @@
     <section class="room-survey">
       <div class="expand">
           <!-- Button trigger modal -->
-            <button id="new-survey-btn" type="button" class="button-field created" data-toggle="modal" data-target="#exampleModalCenter">
+            <button id="new-survey-btn" type="button" class="button-no-style created" data-toggle="modal" data-target="#exampleModalCenter">
               <i class="fas fa-plus"></i>
               Créer un nouveau sondage
             </button>
@@ -142,7 +142,7 @@
     </div>
     <%= simple_form_for [ @room, @message ], remote: true do |f| %>
       <%= hidden_field_tag :message_type, "message" %>
-      <%= f.input :content, autofocus: true, label: false, placeholder: "Taper votre message...", input_html: { autocomplete: 'off' } %>
+      <%= f.input :content, autofocus: true, label: false, placeholder: "Taper votre message...", input_html: { id: 'chat-bar', autocomplete: 'off' } %>
     <% end %>
   </div>
 </div>

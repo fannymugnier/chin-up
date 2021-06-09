@@ -16,6 +16,12 @@
   display: none;
 }
 
+h1, h2, h3, h4, h5, h6, p, span {
+  // font-family: 'Noto Sans JP', sans-serif !important;
+  font-family: 'Poppons', sans-serif !important;
+  font-weight: 200;
+}
+
 body {
   background: rgb(255,230,185);
   background: linear-gradient(0deg, #ffe6b9d4 0%, #fae3d7 47%, #fed8d8 100%);
