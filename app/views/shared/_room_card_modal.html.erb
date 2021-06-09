@@ -1,0 +1,25 @@
+<div class="room-modal room-modal-<%= room.id %> modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-room-card modal-dialog-centered" role="document">
+    <div class="modal-content modal-content-room-card">
+      <div class="modal-header p-0 mb-3">
+        <h2 class="modal-title" id="exampleModalLongTitle"><%= room.name %></h2>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body p-0 mb-3">
+        <h4>Description de la room</h4>
+        <p><%= room.description %></p>
+        <h4>Sujet en cours</h4>
+        <p><%= room.messages.where(message_type: "topic").last ? room.messages.where(message_type: "topic").last.content : "aucun sujet en cours." %></p>
+        <p><i class="far fa-grin"></i></i> <%= pluralize(room.online_users.count, "chinner")%> dans la room</p>
+      </div>
+      <div class="modal-footer p-0">
+          <%= link_to room_path(room) do %>
+            <button type="button" class="button-rounded">Rejoindre</button>
+          <% end %>
+        <button class="fake-more" type="button" data-dismiss="modal">Annuler</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -2,13 +2,14 @@
   background-color: rgb(138, 138, 138);
   color: #fff;
   display: flex;
-  justify-content:center;
+  justify-content:space-between;
   align-items: center;
   margin: 5px 8px;
   border-radius: 8px;
   padding: 6px 0;
 
   p {
-    margin: 0;
+    margin-left: 15px;
+    margin-bottom: 0;
   }
 }

@@ -34,7 +34,6 @@ const initRoomCable = () => {
         const voteElement = document.querySelector('.ongoing-vote');
         const topicBanner = document.querySelector("#topic-banner-anchor");
         const dataParsed = JSON.parse(data)
-        console.log(dataParsed)
         if (dataParsed.event == "new_message") {
           messagesContainer.insertAdjacentHTML('beforeend', dataParsed.html);
           messagesContainer.scrollTop = messagesContainer.scrollHeight;

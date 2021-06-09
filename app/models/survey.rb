@@ -1,4 +1,6 @@
 class Survey < ApplicationRecord
+  attr_accessor :url_first_image, :url_second_image
+
   has_many :answers
   belongs_to :author, class_name: "User"
   belongs_to :room
@@ -9,7 +11,6 @@ class Survey < ApplicationRecord
   validates :first_proposition, presence: true
   validates :second_proposition, presence: true
   validates :author, presence: true
-
 
   def first_proposition_count
     answers.where(selected_proposition: first_proposition).count

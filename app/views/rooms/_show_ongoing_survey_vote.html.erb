@@ -1,12 +1,22 @@
-<hr>
-  <%= simple_form_for [ survey, Answer.new ], remote: true do |f| %>
-      <%= f.input :selected_proposition,
-            as: :radio_buttons,
-            collection_wrapper_tag: 'div',
-            collection_wrapper_class: 'answers-wrapper',
-            item_wrapper_class: 'answer-item',
-            input_html: {class: 'answer-selector'},
-            collection: [survey.first_proposition, survey.second_proposition] %>
-      <%= f.button :submit, "Voter", id: 'expand-btn', class: 'button-field' %>
-  <% end %>
-<hr>
+<%= simple_form_for [ survey, Answer.new ], remote: true do |f| %>
+    <div class="answers-wrapper">
+      <input type="hidden" name="answer[selected_proposition]" value="" />
+      <div class="answer-item">
+        <input class="answer-selector" type="radio" value="<%= survey.first_proposition %>" name="answer[selected_proposition]" id="answer_selected_proposition_1" />
+        <label for="answer_selected_proposition_1" id="answer1" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= survey.first_photo.present? ? cl_image_path(survey.first_photo.key) : 'https://images.unsplash.com/photo-1550684376-efcbd6e3f031?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1500&q=80' %>);">
+          <div id="proposition-text">
+            <p><%= survey.first_proposition %></p>
+          </div>
+        </label>
+      </div>
+      <div class="answer-item">
+        <input class="answer-selector" type="radio" value="<%= survey.second_proposition %>" name="answer[selected_proposition]" id="answer_selected_proposition_2" />
+        <label for="answer_selected_proposition_2" id="answer2" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= survey.second_photo.present? ? cl_image_path(survey.second_photo.key) : 'https://images.unsplash.com/photo-1550684376-efcbd6e3f031?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1500&q=80' %>);">
+          <div id="proposition-text">
+            <p><%= survey.second_proposition %></p>
+          </div>
+        </label>
+      </div>
+    </div>
+  <%= f.button :submit, "Voter", id: 'expand-btn', class: 'button-field' %>
+<% end %>

@@ -1,0 +1,33 @@
+.topic-card {
+  background-color: #fff;
+  list-style: none;
+  cursor: pointer;
+  margin-bottom: 0.5rem;
+  box-shadow: 1px 1px 1px #999;
+  border-radius: 0.5rem;
+  & a {
+    display: inline-block;
+    color: black;
+    padding: 1rem;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+  &:hover {
+      background-color: #ececec;
+      color: #fff;
+    }
+
+  & i {
+    color: #999;
+  }
+}
+
+#ongoing_topics {
+  & h2 {
+    margin-bottom: 1rem;
+  }
+  & ul {
+    padding-left: 0;
+  }
+}

@@ -1,0 +1,15 @@
+<a class="room-card" data-toggle="modal" data-target=".room-modal-<%= room.id %>">
+  <div class="card-room d-flex flex-wrap align-content-between">
+    <% if room.messages.where(message_type: "topic").last %>
+      <p class="live-topic"><span class="blinking">🔴</span> En cours : <%= room.messages.where(message_type: "topic").last.content %></p>
+    <% else %>
+      <p class="live-topic"><span class="blinking">🔴</span> En cours : Le Seigneur des Anneaux</p>
+    <% end %>
+    <div>
+    <h2><%= room.name %></h2>
+    <p><%= pluralize(room.online_users.count, "chinner")%></p>
+    </div>
+  </div>
+</a>
+
+<%= render 'shared/room_card_modal', room: room %>

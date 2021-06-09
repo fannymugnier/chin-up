@@ -2,11 +2,21 @@
 // I tried to get random images from unsplash for each card but it doesn't seems to work.
 $randomNumber: random(200);
 
+.room-card {
+  cursor: pointer;
+  text-decoration: none;
+  color: #fff;
+
+  &:hover {
+    text-decoration: none;
+    color: #fff;
+  }
+}
+
 .card-container {
-  margin-top: 5px;
+  margin-top: 1rem;
   display: grid;
-  grid-row-gap: 10px;
-  grid-column-gap: 10px;
+  grid-gap: 1rem;
   grid-template-columns: 1fr 1fr 1fr;
 }
 
@@ -14,30 +24,23 @@ $randomNumber: random(200);
   background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgb(0, 0, 0)),
     url(https://source.unsplash.com/random?sig=#{$randomNumber});
   background-size: cover;
+  background-position: center;
   height: 200px;
   border-radius: 15px;
   color: #fff;
-  display: flex;
-  align-items: flex-end;
-  overflow: hidden;
   transition: all 0.4s;
+  padding: 1rem;
 
-  h2 {
-    transition: all 0.4s ease;
-    margin: 0 0 15px 20px;
-  }
   // card growing a little big
   &:hover {
-    transform: scale(1.01);
+    transform: scale(1.02);
   }
-  // text going up
-  &:hover h2 {
-    transform: translateY(-100px);
-  }
-  // description and link appearing and getting bigger
-  &:hover .hover-description {
-    opacity: 0.9;
-    bottom: 30px;
+
+  & p.live-topic {
+    background-color: #00000080;
+    padding: 0.25rem 0.5rem;
+    border-radius: 5px;
+    font-size: 0.85rem;
   }
 }
 
@@ -52,4 +55,23 @@ $randomNumber: random(200);
   width: max-content;
   bottom: -55px;
   transition: all 0.4s ease;
+}
+
+.blinking{
+  animation:blinkingText 1.6s infinite;
+}
+@keyframes blinkingText{
+  50%{  opacity: 0; }
+}
+
+.modal-content-room-card {
+  border-radius: 0.75rem;
+  padding: 1rem 2rem;
+  & p {
+    margin: 0;
+  }
+}
+
+.modal-dialog-room-card {
+  max-width: 700px;
 }

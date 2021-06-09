@@ -27,6 +27,8 @@ import { initRoomCable } from "../channels/room_channel";
 import { expandBtn } from "../plugins/expand-btn";
 import { initScrollToBottom } from "../plugins/chat_scroll_bottom";
 import { initTimer } from "../plugins/timer-topic";
+import { previewImageOnFileSelect1, previewImageOnFileSelect2 } from "../plugins/photo_preview";
+import { previewImageOnQuery1, previewImageOnQuery2 } from "../plugins/search_photo_preview"
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
@@ -38,4 +40,8 @@ document.addEventListener("turbolinks:load", () => {
   expandBtn();
   initScrollToBottom();
   initTimer();
+  previewImageOnFileSelect1();
+  previewImageOnFileSelect2();
+  previewImageOnQuery1()
+  previewImageOnQuery2()
 });

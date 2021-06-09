@@ -1,3 +1,14 @@
 <div class="message-container announce-message" id="message-<%= message.id %>">
-  <p><%= message.user.username %> a lancé un nouveau <%= message.message_type == 'topic' ? "sujet : #{message.content}" : 'sondage' %></p>
+  <p>
+    <%= message.user.username %> a lancé un nouveau <%= message.message_type == 'topic' ? "sujet : #{message.content}" : 'sondage' %>
+  </p>
+  <div class="btn-group dropright" id="fake-new">
+    <button type="button" class="user-button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <i class="fas fa-plus"></i>
+    </button>
+    <div id="dropdown-menu-custom-new" class="dropdown-menu">
+      <!-- Dropdown menu links -->
+      <%= link_to "Créer une room avec ce sujet", "#" %>
+    </div>
+  </div>
 </div>
