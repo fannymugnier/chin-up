@@ -4,7 +4,7 @@ const expandBtn = () => {
   if (expand) {
     expand.forEach(button => {
       button.addEventListener('click', () => {
-        const expandContent = button.nextElementSibling;
+        const expandContent = document.querySelector('.expand-content');
         
         button.classList.toggle('expand-button--active')
         

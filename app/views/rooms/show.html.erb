@@ -33,9 +33,16 @@
     <%# Sondage et autres %>
     <section class="room-topic">
       <div class="expand">
-        <button class="expand-button">
-          <h2>Proposer un sujet</h2>
-        </button>
+      <!-- Button new topic -->
+        <div id="two-button">
+                <!-- Button trigger modal -->
+          <button id="new-survey-btn" type="button" class="button-survey" data-toggle="modal" data-target="#exampleModalCenter">
+            <i class="fas fa-poll mb-3" style="font-size: 2rem"></i>
+          </button>
+          <button class="expand-button">
+            <i class="fas fa-bullhorn mb-3" style="font-size: 2rem"></i>
+          </button>
+        </div>
         <div class="expand-content">
           <%= simple_form_for [@room, @message], remote: true do |f| %>
             <%= hidden_field_tag :message_type, "topic" %>
@@ -57,11 +64,6 @@
     </section>
     <section class="room-survey">
       <div class="expand">
-          <!-- Button trigger modal -->
-            <button id="new-survey-btn" type="button" class="button-no-style created" data-toggle="modal" data-target="#exampleModalCenter">
-              <i class="fas fa-plus"></i>
-              Créer un nouveau sondage
-            </button>
           <!-- Modal -->
           <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">

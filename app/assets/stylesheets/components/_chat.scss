@@ -1,6 +1,7 @@
 #messages {
   height: 80vh;
   overflow: scroll;
+  padding: 0 10px 0 10px;
 }
 
 #chat {
@@ -21,5 +22,17 @@
 }
 
 #chat-bar {
-  border-radius: 15px;
+  border-radius: 5px;
+  width: 98%;
+  margin-left: 11px;
+  border: none;
+
+  &:focus {
+    outline: none;
+    border:none;
+    color: #495057;
+    background-color: #fff;
+    // border-color: #ced4da57;
+    box-shadow: none;
+  }
 }
