@@ -11,12 +11,12 @@ $lightGrey: #e0e0e0ad;
   cursor: pointer;
   background: #fff;
   text-align: center;
-  border-radius: 15px;
   transition: border-radius 0.6s;
   margin-top: 10px;
 }
 
 .expand-content {
+  color: #000;
   overflow: hidden;
   max-height: 0;
   transition: max-height 0.2s;
@@ -26,10 +26,6 @@ $lightGrey: #e0e0e0ad;
     background-color: $grey;
     padding: 0;
     margin: 0;
-    &:last-child {
-      border-bottom-right-radius: 15px;
-      border-bottom-left-radius: 15px;
-    }
   }
   .form-group {
     margin: 0;
@@ -43,8 +39,6 @@ $lightGrey: #e0e0e0ad;
 }
 
 .button-field {
-  border-bottom-right-radius: 15px;
-  border-bottom-left-radius: 15px;
   border: 1px solid $lightGrey;
   border-top: none;
   text-align: center;
