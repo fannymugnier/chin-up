@@ -1,3 +1,4 @@
+/** @format */
 
 .user-button {
   border: none;
@@ -20,7 +21,7 @@
   display: grid;
   grid-template-columns: auto auto;
   margin-left: 8px;
-  margin-bottom:20px;
+  margin-bottom: 20px;
 }
 
 .stars {
@@ -29,5 +30,36 @@
   p {
     color: rgb(0, 132, 255);
     margin-right: 4px;
+  }
+}
+
+#dropdown-menu-custom-new {
+  padding: 10px;
+  width: 300px;
+  text-align: center;
+  border-radius: 4px;
+}
+
+#fake-new {
+  margin-right: 8px;
+
+  i {
+    color: #fff;
+    transition: all 0.2s;
+
+    &:hover {
+      opacity: 0.5;
+      transform: scale(1.45);
+    }
+  }
+
+  a {
+    color: black;
+    transition: all 0.1s;
+
+    &:hover {
+      opacity: 0.4;
+      text-decoration: none;
+    }
   }
 }
