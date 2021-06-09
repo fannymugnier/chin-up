@@ -63,6 +63,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'cloudinary', '~> 1.16.0'
 gem 'awesome_print'
 
-gem "oauth2", "~> 1.4"
 
-gem "httparty", "~> 0.18.1"
