@@ -70,20 +70,23 @@
                     <%= f.input :title,label: 'Question :', placeholder: "Votre question..." %>
                     <div class="d-flex justify-content-between">
                       <div class="d-flex flex-column">
-                        <%= f.input :first_proposition, label: 'Option 1 :', placeholder: "1ere proposition", class:"flex-grow-1" %>
+                        <%= f.input :first_proposition, label: 'Option 1 :', placeholder: "1ere proposition", class:"flex-grow-1", input_html: { id: 'input1'}  %>
                         <%= f.input :first_photo, as: :file, label: false, input_html: { class: 'd-none', id: 'photo-input1' }, label_html: { class: 'upload-photo'}, label: '<i class="fas fa-camera"></i> <br> <br> Télécharger une photo'.html_safe %>
                         <%= image_tag "", width: 300, class: "hidden photo-preview-all", id: "photo-preview1" %>
+                        <%= f.input :url_first_image, as: :hidden, input_html: { id: 'url-input1' } %>
+
                       </div>
                       <div class="d-flex flex-column">
-                        <%= f.input :second_proposition, label: 'Option 2 :', placeholder: "2ème proposition", id: 'larger-input' %>
+                        <%= f.input :second_proposition, label: 'Option 2 :', placeholder: "2ème proposition", input_html: { id: 'input2' }%>
                         <%= f.input :second_photo, as: :file, label: false, input_html: { class: 'd-none', id: 'photo-input2' }, label_html: { class: 'upload-photo'}, label: '<i class="fas fa-camera"></i> <br> <br> Télécharger une photo'.html_safe %>
                         <%= image_tag "", width: 300, class: "hidden photo-preview-all", id: "photo-preview2" %>
+                        <%= f.input :url_second_image, as: :hidden, input_html: { id: 'url-input2' } %>
                       </div>
                     </div>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
                     <%= f.submit "Proposer", class: 'btn btn-primary' %>
                   <% end %>
-                </div>
+                </div> 
               </div>
             </div>
           </div>
