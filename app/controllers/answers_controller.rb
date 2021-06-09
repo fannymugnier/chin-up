@@ -30,7 +30,11 @@ class AnswersController < ApplicationController
           first_proposition_count: @survey.first_proposition_count,
           second_proposition_count: @survey.second_proposition_count,
           first_proposition_percent: @survey.first_proposition_percent,
-          second_proposition_percent: @survey.second_proposition_percent
+          second_proposition_percent: @survey.second_proposition_percent,
+          number_of_users: @survey.room.online_users.count,
+          first_proposition: @survey.first_proposition,
+          second_proposition: @survey.second_proposition,
+          vote_user: current_user.id
         }
       }.to_json
     )

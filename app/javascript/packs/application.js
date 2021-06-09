@@ -32,6 +32,16 @@ import { previewImageOnFileSelect2 } from "../plugins/photo_preview";
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 
+const initDisableVote = () => {
+  const voteBtn = document.querySelector('#vote-btn');
+  const voteElement = document.querySelector('.ongoing-vote');
+  if (voteBtn) {
+    voteBtn.addEventListener('click', (event) => {
+      voteElement.classList.add("vote-hide")
+    })
+  }
+}
+
 document.addEventListener("turbolinks:load", () => {
   // Call your functions here, e.g:
   // initSelect2();
@@ -40,4 +50,5 @@ document.addEventListener("turbolinks:load", () => {
   initScrollToBottom();
   previewImageOnFileSelect1();
   previewImageOnFileSelect2();
+  initDisableVote();
 });

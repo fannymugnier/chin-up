@@ -11,7 +11,8 @@ class SurveysController < ApplicationController
         {
           event: "new_survey_announce",
           html: render_to_string(partial: "messages/announce", locals: { message: @message }),
-          voteHtml: render_to_string(partial: "vote", locals: { survey: @survey, answer: Answer.new })
+          voteHtml: render_to_string(partial: "rooms/show_ongoing_survey", locals: { survey: @survey, answer: Answer.new }),
+          survey_id: @survey.id
         }.to_json
       )
       redirect_to room_path(@room)

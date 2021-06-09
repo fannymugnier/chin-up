@@ -1,12 +1,8 @@
-
-<!-- poll bar -->
 <div class="result-wrap">
-  <p>Résultats :</p>
-  <h5><%= survey.title %> </h5>
-      <div class="d-flex justify-content-between">
-        <div><%= survey.first_proposition %> : <span class="first-prop-count"> <%= survey.first_proposition_count %></span></div>
-        <div><%= survey.second_proposition %> : <span class="second-prop-count"><%= survey.second_proposition_count %></span></div>
-      </div>
+  <div class="d-flex justify-content-between">
+    <div><%= survey.first_proposition %> : <span class="first-prop-count"><%= survey.first_proposition_count %></span></div>
+    <div><%= survey.second_proposition %> : <span class="second-prop-count"><%= survey.second_proposition_count %></span></div>
+  </div>
 
   <div class="results-poll">
     <div class="proposition first" style="width: <%= survey.first_proposition_percent %>%">
@@ -14,4 +10,22 @@
     <div class="proposition second" style="width: <%= survey.second_proposition_percent %>%">
     </div>
   </div>
+    <div id='winning-prop-survey<%= survey.id %>' class='hidden'>
+    </div>
 </div>
+
+
+<%# if survey.first_proposition_count + survey.second_proposition_count < survey.room.online_users.count %>
+  <!-- <div id='winning-prop-survey<%= survey.id %>' class='hidden'>
+  </div> -->
+<%# else %>
+  <!-- <div id='winning-prop-survey<%= survey.id %>'> -->
+    <%# if survey.first_proposition_count < survey.second_proposition_count %>
+      <!-- <p><%= survey.second_proposition %> l'emporte ! 🎉</p> -->
+    <%# elsif survey.first_proposition_count > survey.second_proposition_count %>
+      <!-- <p><%= survey.first_proposition %> l'emporte ! 🎉</p> -->
+    <%# else %>
+      <!-- <p>Ex-æquo ! 🤷‍♂️</p> -->
+    <%# end %>
+  <!-- </div> -->
+<%# end %>
