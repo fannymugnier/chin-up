@@ -1,38 +1,15 @@
-<a class="room-card" data-toggle="modal" data-target=".room-modal">
+<a class="room-card" data-toggle="modal" data-target=".room-modal-<%= room.id %>">
   <div class="card-room d-flex flex-wrap align-content-between">
     <% if room.messages.where(message_type: "topic").last %>
-      <p class="live-topic">🔴 En cours : <%= room.messages.where(message_type: "topic").last.content %></p>
+      <p class="live-topic"><span class="blinking">🔴</span> En cours : <%= room.messages.where(message_type: "topic").last.content %></p>
     <% else %>
-      <p class="live-topic">🔴 En cours : Le Seigneur des Anneaux</p>
+      <p class="live-topic"><span class="blinking">🔴</span> En cours : Le Seigneur des Anneaux</p>
     <% end %>
     <div>
-    <h2 id="room-name"><%= room.name %></h2>
+    <h2><%= room.name %></h2>
     <p><%= pluralize(room.online_users.count, "chinner")%></p>
     </div>
   </div>
 </a>
 
-<div class="room-modal modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle"><%= room.name %></h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <p><%= room.description %></p>
-        <p>Sujet en cours : <%= room.messages.where(message_type: "topic").last ? room.messages.where(message_type: "topic").last.content : "aucun sujet en cours." %></p>
-      </div>
-      <div class="modal-footer">
-          <%= link_to room_path(room) do %>
-            <button type="button" class="btn btn-primary">Rejoindre</button>
-          <% end %>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-
+<%= render 'shared/room_card_modal', room: room %>
