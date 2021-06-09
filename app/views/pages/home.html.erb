@@ -3,8 +3,7 @@
   <h3>Échangez avec des personnes qui vous ressemblent.</h3>
 </div>
 
-
-<div class="container">
+<div class="container first-part">
   <div class="searchbar">
     <%= form_tag rooms_path, method: :get do %>
       <div class="d-flex align-items-center">
@@ -23,16 +22,16 @@
     <h2>Sujets en cours</h2>
     <ul>
       <% @rooms.first(4).each do |room| %>
-      <% if room.messages.where(message_type: "topic").last %>
-      <li class="topic-card">
-        <a class="w-100 topic-link" data-toggle="modal" data-target=".room-modal-<%= room.id %>">
-          <div class="d-flex justify-content-between align-items-center">
-            <%= room.messages.where(message_type: "topic").last.content %>
-            <i class="fas fa-ellipsis-h"></i>
-          </div>
-        </a>
-      </li>
-      <% end %>
+        <% if room.messages.where(message_type: "topic").last %>
+        <li class="topic-card">
+          <a class="w-100 topic-link" data-toggle="modal" data-target=".room-modal-<%= room.id %>">
+            <div class="d-flex justify-content-between align-items-center">
+              <%= room.messages.where(message_type: "topic").last.content %>
+              <i class="fas fa-ellipsis-h"></i>
+            </div>
+          </a>
+        </li>
+        <% end %>
       <% end %>
     </ul>
   </div>
@@ -55,7 +54,7 @@
     </div> -->
 </div>
 
-<div class="text-center bg-dark text-white mt-5 py-5">
+<div class="middle-part text-center text-white py-5">
   <h3 class="mb-5">Faites connaissance avec des personnes qui partagent les mêmes passions !</h3>
   <div class="d-flex justify-content-center">
     <div class="text-center mr-5">
@@ -77,9 +76,46 @@
   </div>
 </div>
 
+<div class="container second-part">
+  <div class="mb-5 pt-4">
+    <h2>Sujets en cours</h2>
+    <ul>
+      <% @rooms.first(4).each do |room| %>
+        <% if room.messages.where(message_type: "topic").last %>
+        <li class="topic-card">
+          <a class="w-100 topic-link" data-toggle="modal" data-target=".room-modal-<%= room.id %>">
+            <div class="d-flex justify-content-between align-items-center">
+              <%= room.messages.where(message_type: "topic").last.content %>
+              <i class="fas fa-ellipsis-h"></i>
+            </div>
+          </a>
+        </li>
+        <% end %>
+      <% end %>
+    </ul>
+  </div>
+  <div>
+    <h2>Suggestions pour vous</h2>
+    <div class="card-container">
+      <% @suggested_rooms.each do |room| %>
+      <%= render 'shared/room_card', room: room %>
+      <% end %>
+    </div>
+  </div>
+
+    <!-- <div>
+      <h2> Les plus populaires </h2>
+      <div class="card-container"> -->
+        <%# @rooms.each do |room| %>
+        <%#= render 'shared/room_card', room: room %>
+        <%# end %>
+      <!-- </div>
+    </div> -->
+</div>
+
 <div class="footer">
-  <div class="footer-links">
     Copyright 2021
+  <div class="footer-links">
     <a href="#"><i class="fab fa-github"></i></a>
     <a href="#"><i class="fab fa-instagram"></i></a>
     <a href="#"><i class="fab fa-linkedin"></i></a>
