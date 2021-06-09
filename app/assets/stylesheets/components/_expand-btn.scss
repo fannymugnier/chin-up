@@ -3,7 +3,7 @@ $grey: rgb(136, 135, 135);
 $lightGrey: #e0e0e0ad;
 
 .expand-button {
-  display: flex;
+  // display: flex; A voir si on met du texte dans le button
   justify-content: center;
   align-items: center;
   border: 1px solid $lightGrey;
@@ -16,6 +16,9 @@ $lightGrey: #e0e0e0ad;
   padding-top: 10px;
   border-radius: 15px;
 
+  i {
+    margin: 0;
+  }
 }
 
 .expand-content {

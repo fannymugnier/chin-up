@@ -37,10 +37,12 @@
         <div id="two-button">
                 <!-- Button trigger modal -->
           <button id="new-survey-btn" type="button" class="button-survey" data-toggle="modal" data-target="#exampleModalCenter">
-            <i class="fas fa-poll mb-3" style="font-size: 2rem"></i>
+            <i class="fas fa-poll" style="font-size: 2rem"></i>
+            Sondage
           </button>
           <button class="expand-button">
-            <i class="fas fa-bullhorn mb-3" style="font-size: 2rem"></i>
+            <i class="fas fa-bullhorn" style="font-size: 2rem"></i>
+            Sujets
           </button>
         </div>
         <div class="expand-content">
@@ -107,7 +109,6 @@
                     <%= render 'rooms/show_ongoing_survey', survey: survey %>
                   <% end %>
                 <% end %>
-
               </div>
               <div class="closed-surveys">
                 <% if @closed_surveys %>
@@ -129,9 +130,6 @@
   </aside>
   <div id="chat">
     <div id="scroll">
-    <div class="topic-banner">
-      <p>Sujet en cours : <span id="topic-banner-anchor"><%= @room.messages.where(message_type: "topic").last ? @room.messages.where(message_type: "topic").last.content : "Aucun sujet en cours" %></span></p>
-    </div>
       <div id="messages" data-chatroom-id="<%= @room.id %>">
         <% @room.messages.each do |message| %>
           <% if message.message_type == 'message' %>
