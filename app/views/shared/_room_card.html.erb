@@ -1,9 +1,9 @@
 <a class="room-card" data-toggle="modal" data-target=".room-modal-<%= room.id %>">
-  <div class="card-room d-flex flex-wrap align-content-between">
+  <div class="card-room d-flex flex-column align-content-between justify-content-between">
     <% if room.messages.where(message_type: "topic").last %>
       <p class="live-topic"><span class="blinking">🔴</span> En cours : <%= room.messages.where(message_type: "topic").last.content %></p>
     <% else %>
-      <p class="live-topic"><span class="blinking">🔴</span> En cours : Le Seigneur des Anneaux</p>
+      <p class="live-topic" style="visibility: hidden;"></p>
     <% end %>
     <div>
     <h2><%= room.name %></h2>
