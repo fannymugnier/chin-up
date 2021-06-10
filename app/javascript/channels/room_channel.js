@@ -48,6 +48,8 @@ const initRoomCable = () => {
           updatePoll(dataParsed.data)
           if (dataParsed.data.first_proposition_count + dataParsed.data.second_proposition_count === dataParsed.data.number_of_users) {
             const winDivElement = document.querySelector(`#winning-prop-survey${dataParsed.data.survey_id}`);
+            const voteElement = document.querySelector('.ongoing-vote');
+            voteElement.classList.add("vote-hide")
             winDivElement.classList.remove("hidden")
             if (dataParsed.data.first_proposition_count < dataParsed.data.second_proposition_count) {
               winDivElement.insertAdjacentHTML('beforeend', `<p>${dataParsed.data.second_proposition} l'emporte ! 🎉</p>`)
