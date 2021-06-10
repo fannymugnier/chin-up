@@ -1,5 +1,6 @@
 import consumer from "./consumer";
 import { expandBtn } from "../plugins/expand-btn";
+import { initTimer } from "../plugins/timer-topic";
 
 const updatePoll = (data) => {
   const surveyId = data.survey_id;
@@ -40,6 +41,14 @@ const initRoomCable = () => {
           messagesContainer.insertAdjacentHTML('beforeend', dataParsed.html);
           messagesContainer.scrollTop = messagesContainer.scrollHeight;
           topicBanner.innerHTML = dataParsed.content;
+          const countDownBis = document.querySelector('#countdown')
+
+          if(countDownBis.hasAttribute('data-end-timer')) {
+
+          } else {
+            countDownBis.setAttribute('data-end-timer', 600)
+            setTimeout(initTimer(), 1000);
+          }
         } else if (dataParsed.event == "new_survey_announce") {
           messagesContainer.insertAdjacentHTML('beforeend', dataParsed.html);
           messagesContainer.scrollTop = messagesContainer.scrollHeight;

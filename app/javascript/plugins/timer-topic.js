@@ -5,6 +5,7 @@ const initTimer = () => {
 
   if (countDown) {
     const upperValue = countDown.dataset.endTimer
+  console.log(upperValue)
 
 
     if (upperValue) {
