@@ -29,3 +29,22 @@
     color: #fff;
   }
 }
+
+.btn-create-survey {
+  border-bottom-right-radius: 15px;
+  border-bottom-left-radius: 15px;
+  border-top: 1px solid #ffffff7a;
+  text-align: center;
+  height: 59px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 106%;
+  position: absolute;
+  left: -10px;
+  bottom: -10px;
+  color: #000000b5;
+  &:hover {
+    background-color: #ffffffb5;
+  }
+}
