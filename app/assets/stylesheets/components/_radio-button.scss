@@ -9,6 +9,7 @@ $lightGrey: #e0e0e0ad;
 
 .category-item {
   flex: 0 0 30%;
+  font-size: 0.75rem;
 }
 
 .category-selector {
@@ -21,17 +22,16 @@ $lightGrey: #e0e0e0ad;
   cursor: pointer;
   box-sizing: border-box;
   width: 100%;
-  font-size: 12px;
+  font-size: 0.75rem;
+  font-style: italic;
   text-align: center;
-  padding: 20px 10px 20px 10px;
-  border-bottom: 1px solid $lightGrey;
+  padding: 0.75rem;
+  border-bottom: 1px solid #ffffff7a;
   border-left: 1px solid $lightGrey;
   border-right: 1px solid $lightGrey;
-  // border-radius: 4px;
-  background-color: white;
-
+  background-color: #ffffff82;
   &:hover {
-    background-color: #f5f5f5ad
+    background-color: #ffffffb5;
   }
 
 }
@@ -74,7 +74,7 @@ legend {
   &:hover {
     background-color: #f5f5f5ad
   }
-  
+
 }
 #proposition-text {
   color: #fff;
