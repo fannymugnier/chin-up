@@ -2,6 +2,8 @@
   width: 40px;
   border-radius: 50%;
   cursor: pointer;
+  height: 40px;
+  object-fit: cover;
 }
 .avatar-large {
   width: 56px;
@@ -24,10 +26,13 @@
   width: 3.5rem;
   border-radius: 50%;
   height: 3.5rem;
+  object-fit: cover;
 }
 
 .online-users-avatar {
   width: 40px;
+  height: 40px;
+  object-fit: cover;
   border-radius: 50%;
 }
 

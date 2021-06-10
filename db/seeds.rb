@@ -41,9 +41,14 @@ room6.topics = Topic.all
 room6.interests = Interest.where(name: ["animaux", "chat", "chien"])
 
 
-file1 = URI.open('https://res.cloudinary.com/dayvtqlm1/image/upload/v1622813252/j3jqz8v1rvcvf68rhnoa2pq6guyu.jpg')
-file2 = URI.open('https://res.cloudinary.com/dayvtqlm1/image/upload/v1622813251/5ibaq94061ek2zd9y5b05du4u5h6.jpg')
-file3 = URI.open('https://res.cloudinary.com/dayvtqlm1/image/upload/v1622813252/j3jqz8v1rvcvf68rhnoa2pq6guyu.jpg')
+file1 = URI.open('https://res.cloudinary.com/dayvtqlm1/image/upload/v1623313247/toto_hgpjrh.jpg')
+file2 = URI.open('https://res.cloudinary.com/dayvtqlm1/image/upload/v1623313247/tutu_zh80vu.jpg')
+file3 = URI.open('https://res.cloudinary.com/dayvtqlm1/image/upload/v1623313235/tata_okkeyo.png')
+file4 = URI.open('https://res.cloudinary.com/dayvtqlm1/image/upload/v1623314238/fabrice_rtpyz1.jpg')
+file5 = URI.open('https://res.cloudinary.com/dayvtqlm1/image/upload/v1623314329/cindy_vtmbef.jpg')
+file6 = URI.open('https://res.cloudinary.com/dayvtqlm1/image/upload/v1623315319/laure_c115a5.jpg')
+file7 = URI.open('https://res.cloudinary.com/dayvtqlm1/image/upload/v1623314238/pat_a2tbcu.jpg')
+file8 = URI.open('https://res.cloudinary.com/dayvtqlm1/image/upload/v1623312982/alex_uubi72.jpg')
 
 
 user1 = User.create!(username: "toto", email: "toto@toto.com", password: "123456", age: 20)
@@ -55,3 +60,24 @@ user2.photo.attach(io: file2, filename: 'user2.png', content_type: 'image/png')
 user3 = User.create!(username: "tata", email: "tata@tata.com", password: "123456", age: 27)
 user3.interests = Interest.where(name: ["animaux", "vélo", "films", "informatique"])
 user3.photo.attach(io: file3, filename: 'user3.png', content_type: 'image/png')
+
+user4 = User.create!(username: "Fabrice", email: "fabrice@chinup.com", password: "123456", age: 24)
+user4.interests = Interest.where(name: ["films", "jeux vidéo", "cuisine"])
+user4.photo.attach(io: file4, filename: 'user4.png', content_type: 'image/png')
+
+user5 = User.create!(username: "Cindy", email: "cindy@chinup.com", password: "123456", age: 28)
+user5.interests = Interest.where(name: ["films", "jeux vidéo", "animaux"])
+user5.photo.attach(io: file5, filename: 'user5.png', content_type: 'image/png')
+
+user6 = User.create!(username: "Laure", email: "laure@chinup.com", password: "123456", age: 29)
+user6.interests = Interest.where(name: ["films", "randonnée", "animaux"])
+user6.photo.attach(io: file6, filename: 'user6.png', content_type: 'image/png')
+
+user7 = User.create!(username: "Pat", email: "pat@chinup.com", password: "123456", age: 33)
+user7.interests = Interest.where(name: ["vélo", "jeux vidéo", "animaux"])
+user7.photo.attach(io: file7, filename: 'user7.png', content_type: 'image/png')
+
+user8 = User.create!(username: "Alex", email: "alex@chinup.com", password: "123456", age: 25)
+user8.interests = Interest.where(name: ["sport", "cuisine", "animaux"])
+user8.photo.attach(io: file8, filename: 'user8.png', content_type: 'image/png')
+
