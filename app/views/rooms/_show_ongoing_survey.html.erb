@@ -1,6 +1,6 @@
 <div class="ongoing-survey">
   <div id="survey-<%= survey.id %>" class="survey-container">
-    <h5><%= survey.title %></h5>
+    <h5 class='text-center'><%= survey.title %></h5>
     <% unless survey.answers.find_by(user: current_user) %>
       <div class="ongoing-vote">
         <%= render 'rooms/show_ongoing_survey_vote', survey: survey %>
