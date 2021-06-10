@@ -1,12 +1,13 @@
 .announce-message {
-  background-color: rgb(138, 138, 138);
+  background-color: #3c8dada6;
   color: #fff;
   display: flex;
   justify-content:space-between;
   align-items: center;
   margin: 5px 8px;
-  border-radius: 8px;
+  border-radius: 4px;
   padding: 6px 0;
+  opacity: 0.68;
 
   p {
     margin-left: 15px;
