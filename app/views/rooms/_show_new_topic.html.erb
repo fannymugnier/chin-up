@@ -2,16 +2,17 @@
 <!-- Button new topic -->
   <div id="two-button">
           <!-- Button trigger modal -->
-    <button id="new-survey-btn" type="button" class="button-survey" data-toggle="modal" data-target="#exampleModalCenter">
+    <button id="new-survey-btn" class="expand-button first-btn">
       <i class="fas fa-poll" style="font-size: 2rem"></i>
       Lancer un sondage
     </button>
-    <button class="expand-button">
+
+    <button id="new-topic-btn" class="expand-button">
       <i class="fas fa-bullhorn" style="font-size: 2rem"></i>
       Proposer un sujet
     </button>
   </div>
-  <div class="expand-content">
+  <div class="expand-content-topic">
     <%= simple_form_for [room, message], remote: true do |f| %>
       <%= hidden_field_tag :message_type, "topic" %>
       <% topics_array=[] %>
@@ -27,5 +28,33 @@
       <%= f.button :submit, "Proposer", id: 'expand-btn', class: 'button-field' %>
       <%# </div> %>
     <% end %>
+  </div>
+  <div class="expand-content-survey">
+    <h5 class="modal-title" id="exampleModalLongTitle">Créer un nouveau sondage</h5>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+    </button>
+    <div class="modal-body">
+      <%= simple_form_for [ @room, @survey ] do |f| %>
+        <%= f.input :title,label: 'Question :', placeholder: "Votre question...", input_html: { autocomplete: 'off' } %>
+        <div class="d-flex justify-content-between">
+          <div class="d-flex flex-column">
+            <%= f.input :first_proposition, label: 'Option 1 :', placeholder: "1ere proposition", class:"flex-grow-1", input_html: { id: 'input1', autocomplete: 'off'}  %>
+            <%= f.input :first_photo, as: :file, label: false, input_html: { class: 'd-none', id: 'photo-input1' }, label_html: { class: 'upload-photo'}, label: '<i class="fas fa-camera"></i> <br> <br> Télécharger une photo'.html_safe %>
+            <%= image_tag "", width: 300, class: "hidden photo-preview-all", id: "photo-preview1" %>
+            <%= f.input :url_first_image, as: :hidden, input_html: { id: 'url-input1' } %>
+
+          </div>
+          <div class="d-flex flex-column">
+            <%= f.input :second_proposition, label: 'Option 2 :', placeholder: "2ème proposition", input_html: { id: 'input2', autocomplete: 'off' }%>
+            <%= f.input :second_photo, as: :file, label: false, input_html: { class: 'd-none', id: 'photo-input2' }, label_html: { class: 'upload-photo'}, label: '<i class="fas fa-camera"></i> <br> <br> Télécharger une photo'.html_safe %>
+            <%= image_tag "", width: 300, class: "hidden photo-preview-all", id: "photo-preview2" %>
+            <%= f.input :url_second_image, as: :hidden, input_html: { id: 'url-input2' } %>
+          </div>
+        </div>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+        <%= f.submit "Proposer", class: 'btn btn-primary' %>
+      <% end %>
+    </div>
   </div>
 </div>
