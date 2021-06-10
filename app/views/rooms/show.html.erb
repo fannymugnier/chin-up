@@ -103,11 +103,11 @@
           </div>
           <div class="surveys_status">
             <div>
-              <div id="survey-container" class="ongoing-survey">
+              <div id="survey-container">
                 <% if @ongoing_survey %>
-                  <% @ongoing_survey.each do |survey| %>
-                    <%= render 'rooms/show_ongoing_survey', survey: survey %>
-                  <% end %>
+                    <% @ongoing_survey.each do |survey| %>
+                      <%= render 'rooms/show_ongoing_survey', survey: survey %>
+                    <% end %>
                 <% end %>
               </div>
               <div class="closed-surveys">

@@ -1,11 +1,13 @@
-<div id="survey-<%= survey.id %>">
-  <h3><%= survey.title %></h3>
-  <% unless survey.answers.find_by(user: current_user) %>
-    <div class="ongoing-vote">
-      <%= render 'rooms/show_ongoing_survey_vote', survey: survey %>
+<div class="ongoing-survey">
+  <div id="survey-<%= survey.id %>" class="survey-container">
+    <h5><%= survey.title %></h5>
+    <% unless survey.answers.find_by(user: current_user) %>
+      <div class="ongoing-vote">
+        <%= render 'rooms/show_ongoing_survey_vote', survey: survey %>
+      </div>
+    <% end %>
+    <div class="ongoing-result">
+      <%= render 'rooms/show_ongoing_survey_results', survey: survey %>
     </div>
-  <% end %>
-  <div class="ongoing-result">
-    <%= render 'rooms/show_ongoing_survey_results', survey: survey %>
   </div>
 </div>

@@ -1,7 +1,8 @@
+
 <div class="result-wrap">
   <div class="d-flex justify-content-between">
-    <div><%= survey.first_proposition %> : <span class="first-prop-count"><%= survey.first_proposition_count %></span></div>
-    <div><%= survey.second_proposition %> : <span class="second-prop-count"><%= survey.second_proposition_count %></span></div>
+    <div class="first-text"><%= survey.first_proposition.capitalize %> : <span class="first-prop-count"><%= survey.first_proposition_count %></span></div>
+    <div class="second-text"><%= survey.second_proposition.capitalize %> : <span class="second-prop-count"><%= survey.second_proposition_count %></span></div>
   </div>
 
   <div class="results-poll">
