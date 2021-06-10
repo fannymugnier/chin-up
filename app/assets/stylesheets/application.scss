@@ -22,13 +22,18 @@ h1, h2, h3, h4, h5, h6, p, span, a {
   font-weight: 200;
 }
 
+h2 {
+  margin-bottom: 2rem;
+  color: #616161e6;
+  text-shadow: 1px 1px 0px #00000029;
+}
+
 body {
-  background: rgb(255,230,185);
-  background: linear-gradient(0deg, #ffe6b9d4 0%, #fae3d7 47%, #fed8d8 100%);
+  background: linear-gradient(0deg, #fae3d785 0%, #fae3d7 47%, #fed8d896 100%);
 }
 
 .first-part {
-  padding: 0 2rem 3rem 2rem;
+  padding: 0 2rem 4rem 2rem;
   background-color: #fffefe30;
   box-shadow: 0px 0px 1px #00000038;
 }
@@ -39,13 +44,6 @@ body {
   border-bottom-right-radius: 0.75rem;
   border-bottom-left-radius: 0.75rem;
   box-shadow: 0px 0px 1px #00000038;
-
-  a.btn {
-    color: #000;
-    &:hover {
-      color: #666;
-    }
-  }
 }
 
 .middle-part {

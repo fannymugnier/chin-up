@@ -1,19 +1,31 @@
 .cover {
   background-image: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.58)), url(asset_path('banner-home1.jpeg'));
-  height: 400px;
+  height: 550px;
   width: 100%;
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center;
-
+  background-position: bottom;
+  background-attachment: fixed;
 }
 
 .cover h1 {
   font-size: 80px;
-  margin-top: 25px;
   text-shadow: 1px 1px #060606e8;
 }
 
 .cover h3 {
   text-shadow: 1px 1px #060606e8;
+}
+
+.cover-small {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.58)), url(asset_path('banner-home1.jpeg'));
+  width: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-attachment: fixed;
+  text-shadow: 1px 1px #0000009c;
+  p {
+    font-weight: 300;
+  }
 }
