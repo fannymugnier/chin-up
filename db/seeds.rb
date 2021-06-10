@@ -40,7 +40,6 @@ room6 = Room.create!(name: "Animaux", description: "Venez parler de votre toutou
 room6.topics = Topic.all
 room6.interests = Interest.where(name: ["animaux", "chat", "chien"])
 
-
 file1 = URI.open('https://res.cloudinary.com/dayvtqlm1/image/upload/v1623313247/toto_hgpjrh.jpg')
 file2 = URI.open('https://res.cloudinary.com/dayvtqlm1/image/upload/v1623313247/tutu_zh80vu.jpg')
 file3 = URI.open('https://res.cloudinary.com/dayvtqlm1/image/upload/v1623313235/tata_okkeyo.png')
@@ -49,7 +48,6 @@ file5 = URI.open('https://res.cloudinary.com/dayvtqlm1/image/upload/v1623314329/
 file6 = URI.open('https://res.cloudinary.com/dayvtqlm1/image/upload/v1623315319/laure_c115a5.jpg')
 file7 = URI.open('https://res.cloudinary.com/dayvtqlm1/image/upload/v1623314238/pat_a2tbcu.jpg')
 file8 = URI.open('https://res.cloudinary.com/dayvtqlm1/image/upload/v1623312982/alex_uubi72.jpg')
-
 
 user1 = User.create!(username: "toto", email: "toto@toto.com", password: "123456", age: 20)
 user1.interests = Interest.where(name: ["films", "automobile", "cuisine"])

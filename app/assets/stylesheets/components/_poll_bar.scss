@@ -4,7 +4,7 @@
   height: 20px;
   display: flex;
   margin: 0;
-  border-radius: 10px;
+  border-radius: 5px;
   overflow: hidden;
 }
 
@@ -15,18 +15,28 @@
   transition: all 2s ease;
 }
 
+$first: #58243d;
 .first {
-  background: rgb(45, 16, 172);
-  color: #fff;
+  background: $first;
+  color: $first;
 }
 
-#firstp {
-  background: rgb(45, 16, 172);
-  height: 8px;
-  width: 8px;
+.first-text {
+  color: $first;
 }
 
+// #firstp {
+//   background: #fed8d8f6 ;
+//   height: 8px;
+//   width: 8px;
+// }
+
+$second: #9f75c1;
 .second {
-  background: rgb(29, 173, 209);
-  color: #fff;
+  background: $second;
+  color: $second;
+}
+
+.second-text {
+  color: $second;
 }
