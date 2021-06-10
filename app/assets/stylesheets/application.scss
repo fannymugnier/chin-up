@@ -28,7 +28,7 @@ h2 {
   text-shadow: 1px 1px 0px #0000001a;
 }
 
-h5 {
+h4, h5, p {
   color: #616161e6;
 }
 
@@ -52,4 +52,8 @@ body {
 
 .middle-part {
   background-color: #0000009e;
+
+  p {
+    color: #fff;
+  }
 }
