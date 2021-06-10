@@ -9,7 +9,7 @@ $lightGrey: #e0e0e0ad;
   width: 100%;
   text-align: center;
   color: rgb(199, 199, 199);
-  
+
   i{
     font-size: 3rem;
   }
@@ -48,13 +48,18 @@ $lightGrey: #e0e0e0ad;
 }
 
 .button-survey {
-  background-color: #fff;;
+  background-color: #fff;
   border: none;
   border: 1px solid #e0e0e0ad;
   height: 100px;
-  width: 100px;
+  width: 50%;
   padding-top: 10px;
-  border-radius: 15px;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 
   i {
     margin: 0;

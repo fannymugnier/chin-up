@@ -8,7 +8,7 @@
 
 .card-chatroom {
   border-radius: 1px;
-  
+
   &:hover {
     transform: scale(1);
   }
@@ -19,6 +19,8 @@
 }
 
 #two-button {
-  display: flex;
-  justify-content:space-evenly;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 0 1rem;
 }
