@@ -69,26 +69,10 @@
 
 <div class="container second-part">
   <div class="mb-5 pt-4">
-    <h2>Sujets en cours</h2>
-    <ul>
-      <% @rooms.first(4).each do |room| %>
-        <% if room.messages.where(message_type: "topic").last %>
-        <li class="topic-card">
-          <a class="w-100 topic-link" data-toggle="modal" data-target=".room-modal-<%= room.id %>">
-            <div class="d-flex justify-content-between align-items-center">
-              <%= room.messages.where(message_type: "topic").last.content %>
-              <i class="fas fa-ellipsis-h"></i>
-            </div>
-          </a>
-        </li>
-        <% end %>
-      <% end %>
-    </ul>
-  </div>
-  <div>
-    <h2>Suggestions pour vous</h2>
+    <h2>Un grand choix de rooms</h2>
+    <%= link_to 'Voir toutes les rooms', rooms_path, class: "btn" %>
     <div class="card-container">
-      <% @suggested_rooms.each do |room| %>
+      <% @rooms.each do |room| %>
       <%= render 'shared/room_card', room: room %>
       <% end %>
     </div>
