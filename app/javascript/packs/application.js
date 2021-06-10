@@ -23,29 +23,16 @@ require("channels");
 // ----------------------------------------------------
 // External imports
 import "bootstrap";
+import swal from 'sweetalert';
 import { initRoomCable } from "../channels/room_channel";
 import { expandBtn } from "../plugins/expand-btn";
 import { initScrollToBottom } from "../plugins/chat_scroll_bottom";
 import { initTimer } from "../plugins/timer-topic";
 import { previewImageOnFileSelect1, previewImageOnFileSelect2 } from "../plugins/photo_preview";
 import { previewImageOnQuery1, previewImageOnQuery2 } from "../plugins/search_photo_preview"
-
-// Internal imports, e.g:
-// import { initSelect2 } from '../components/init_select2';
-
-const initDisableVote = () => {
-  const voteBtn = document.querySelector('#vote-btn');
-  const voteElement = document.querySelector('.ongoing-vote');
-  if (voteBtn) {
-    voteBtn.addEventListener('click', (event) => {
-      voteElement.classList.add("vote-hide")
-    })
-  }
-}
+import { initDisableVote } from "../plugins/disable_vote"
 
 document.addEventListener("turbolinks:load", () => {
-  // Call your functions here, e.g:
-  // initSelect2();
   initRoomCable();
   expandBtn();
   initScrollToBottom();
