@@ -32,37 +32,7 @@
 
     <%# Sondage et autres %>
     <section class="room-topic">
-      <div class="expand">
-      <!-- Button new topic -->
-        <div id="two-button">
-                <!-- Button trigger modal -->
-          <button id="new-survey-btn" type="button" class="button-survey" data-toggle="modal" data-target="#exampleModalCenter">
-            <i class="fas fa-poll" style="font-size: 2rem"></i>
-            Lancer un sondage
-          </button>
-          <button class="expand-button">
-            <i class="fas fa-bullhorn" style="font-size: 2rem"></i>
-            Proposer un sujet
-          </button>
-        </div>
-        <div class="expand-content">
-          <%= simple_form_for [@room, @message], remote: true do |f| %>
-            <%= hidden_field_tag :message_type, "topic" %>
-            <% topics_array=[] %>
-            <% @room.topics.each { |topic| topics_array << topic.subject } %>
-            <%= f.input :content,
-                          as: :radio_buttons,
-                          collection_wrapper_tag: 'div',
-                          collection_wrapper_class: 'category-wrapper',
-                          item_wrapper_class: 'category-item',
-                          input_html: {class: 'category-selector'},
-                          collection: topics_array %>
-            <%# <div class="button-field"> %>
-            <%= f.button :submit, "Proposer", id: 'expand-btn', class: 'button-field' %>
-            <%# </div> %>
-          <% end %>
-        </div>
-      </div>
+      <%= render 'rooms/show_new_topic', room: @room, message: @message %>
     </section>
     <section class="room-survey">
       <div class="expand">
