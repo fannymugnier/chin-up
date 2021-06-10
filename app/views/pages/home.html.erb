@@ -23,7 +23,7 @@
     </div>
     <div id="ongoing_topics" class="mb-5 mt-3">
       <h2>Sujets en cours</h2>
-      <ul>
+      <ul class="mt-4">
         <% @rooms.first(4).each do |room| %>
         <% if room.messages.where(message_type: "topic").last %>
         <li class="topic-card">
@@ -40,8 +40,8 @@
       <%= link_to "Voir tous les sujets", "#", class: "btn btn-see-more" %>
     </div>
     <div>
-      <h2>Suggestions pour vous</h2>
-      <div class="card-container">
+      <h2>Rooms qui pourraient vous intéresser</h2>
+      <div class="card-container mt-4">
         <% @suggested_rooms.each do |room| %>
         <%= render 'shared/room_card', room: room %>
         <% end %>
@@ -72,7 +72,8 @@
 
   <div class="container second-part">
     <div class="mb-5 pt-5">
-      <h2>Un choix de rooms varié</h2>
+      <h2>Toutes nos rooms</h2>
+      <h5>Un choix vaste et varié pour trouver LA room qui correspond à vos envies !</h5>
       <div class="card-container mb-4">
         <% @rooms.first(9).each do |room| %>
         <%= render 'shared/room_card', room: room %>

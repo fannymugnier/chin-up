@@ -1,14 +1,13 @@
 <div class="room-modal room-modal-<%= room.id %> modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-room-card modal-dialog-centered" role="document">
     <div class="modal-content modal-content-room-card">
-      <div class="modal-header p-0 mb-3">
+      <div class="modal-header p-0 mb-2">
         <h2 class="modal-title" id="exampleModalLongTitle"><%= room.name %></h2>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body p-0 mb-3">
-        <h4><u>Description de la room</u></h4>
         <p><%= room.description %></p>
         <h4 class="mt-3"><u>Sujet en cours</u></h4>
         <p><%= room.messages.where(message_type: "topic").last ? room.messages.where(message_type: "topic").last.content : "aucun sujet en cours." %></p>
