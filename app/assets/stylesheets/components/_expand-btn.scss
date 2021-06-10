@@ -8,7 +8,6 @@ $lightGrey: #e0e0e0ad;
 }
 
 .expand-button {
-  // display: flex; A voir si on met du texte dans le button
   border: 1px solid $lightGrey;
   outline: none;
   cursor: pointer;
@@ -33,9 +32,15 @@ $lightGrey: #e0e0e0ad;
       color: #000c;
       background: #ffffffb5;
     }
+  &:first-of-type {
+    border-top-right-radius: 0;
+    border-top-left-radius: 15px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 15px;
+  }
 }
 
-.expand-content {
+.expand-content-topic {
   color: #000;
   overflow: hidden;
   max-height: 0;
@@ -51,8 +56,38 @@ $lightGrey: #e0e0e0ad;
   }
 }
 
+.expand-content-survey {
+  color: #000000b5;
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.2s;
+  padding: 0 16px;
+  p {
+    background-color: $grey;
+    padding: 0;
+    margin: 0;
+  }
+  .form-group {
+    margin: 0;
+    margin-bottom: 5px;
+  }
+  .upload-photo {
+    border-radius: 5px;
+  }
+  .form-control {
+    border-radius: 5px;
+  }
+
+  .form-control:focus {
+    border-color: none;
+    outline: 0;
+    box-shadow: none;
+  }
+}
+
 .expand-button--active {
-  border-bottom-right-radius: 0;
+  border-bottom-right-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
   border-bottom: 1px solid $lightGrey;
   color: #000;
   background: #ffffffb5;
@@ -60,6 +95,7 @@ $lightGrey: #e0e0e0ad;
 
 .remove-bdrs {
   border-bottom-left-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
 }
 
 .button-field {
@@ -93,5 +129,16 @@ $lightGrey: #e0e0e0ad;
   &:hover {
     color: #000c;
     background: #ffffffb5;
+  }
+}
+
+#survey-content {
+  background-color: #ffffff82;
+  border-bottom-right-radius: 15px;
+  border-bottom-left-radius: 15px;
+  padding: 10px;
+
+  label {
+    margin-bottom: 3px;
   }
 }
