@@ -47,8 +47,17 @@ $lightGrey: #e0e0e0ad;
   background-color: #fff;
 }
 
-.button-no-style {
-  background-color: transparent;
+.button-survey {
+  background-color: #fff;;
   border: none;
+  border: 1px solid #e0e0e0ad;
+  height: 100px;
+  width: 100px;
+  padding-top: 10px;
+  border-radius: 15px;
+
+  i {
+    margin: 0;
+  }
 
 }

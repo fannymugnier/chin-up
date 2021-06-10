@@ -2,7 +2,7 @@
 
 .main-page {
   display: flex;
-  height: calc(100vh - 58px);
+  min-height: 93vh;
   margin: 0;
 }
 
@@ -10,5 +10,3 @@
   flex-direction: column;
   width: 100%;
 }
-
-
