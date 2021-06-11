@@ -4,7 +4,7 @@
 
   <div class="btn-group dropright">
   <button type="button" class="user-button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    <span class="font-italic"><%= message.user.username %></span> 
+    <span class="font-italic"><%= message.user.username %></span>
   </button>
   <div id="dropdown-menu-custom" class="dropdown-menu p-4">
     <!-- Dropdown menu links -->
@@ -26,9 +26,14 @@
     <%= link_to "...", '#', class: 'fake-more' %>
   </div>
 </div>
-    
+
     <span class="font-italic message-time"><%= message.created_at.strftime('%R') %></span>
-    <p><%= message.content %></p>
+    <% if message.content.start_with?("https") %>
+      <br>
+      <a href="<%= message.content %>" target="_blank"><%= message.content %></a>
+    <% else %>
+      <p><%= message.content %></p>
+    <% end %>
   </div>
 </div>
 
