@@ -21,25 +21,30 @@ topics_list.each do |topic|
   Topic.create!(subject: topic)
 end
 
-room1 = Room.create!(name: "Cinéma", description: "Tout et n'importe quoi autour du cinéma. 🎬")
+room1 = Room.create!(name: "Passions atypiques", description: "Venez parler de vos passions qui sortent du commun! 👌😁")
 room1.topics = Topic.all
-room1.interests = Interest.where(name: ["films", "séries"])
-room1.update(photo_url: "https://images.unsplash.com/photo-1485846234645-a62644f84728?ixid=MnwxMjA3fDB8MHxwaG90[…]GVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1340&q=80")
-
-room2 = Room.create!(name: "Sport", description: "Tout sur le sport. 🏋🏻")
+room1.interests = Interest.where(name: ["bricolage"])
+room1.update(photo_url: "https://images.unsplash.com/photo-1565690929985-864614259ea4?ixid=MnwxMjA3fDB8MHxwaG90[…]GVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2158&q=80")
+room2 = Room.create!(name: "Cuisine", description: "Toutes les astuces de cuisine. 👨🏻‍🍳")
 room2.topics = Topic.all
-room2.interests = Interest.where(name: ["sport", "randonnée", "vélo"])
-room2.update(photo_url: "https://images.unsplash.com/photo-1530549387789-4c1017266635?ixlib=rb-1.2.1&ixid=MnwxM[…]90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1050&q=80")
+room2.interests = Interest.where(name: ["cuisine", "recette"])
+room2.update(photo_url: "https://images.unsplash.com/photo-1466637574441-749b8f19452f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80")
 
 room3 = Room.create!(name: "Jeux vidéo", description: "Venez parler jeux vidéo ! 🎮")
 room3.topics = Topic.all
 room3.interests = Interest.where(name: ["jeux vidéo", "gaming"])
 room3.update(photo_url: "https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80")
-
-room4 = Room.create!(name: "Cuisine", description: "Toutes les astuces de cuisine. 👨🏻‍🍳")
+room4 = Room.create!(name: "Cinéma", description: "Tout et n'importe quoi autour du cinéma. 🎬")
 room4.topics = Topic.all
-room4.interests = Interest.where(name: ["cuisine", "recette"])
-room4.update(photo_url: "https://images.unsplash.com/photo-1466637574441-749b8f19452f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80")
+room4.interests = Interest.where(name: ["films", "séries"])
+room4.update(photo_url: "https://images.unsplash.com/photo-1485846234645-a62644f84728?ixid=MnwxMjA3fDB8MHxwaG90[…]GVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1340&q=80")
+
+room10 = Room.create!(name: "Sport", description: "Tout sur le sport. 🏋🏻")
+room10.topics = Topic.all
+room10.interests = Interest.where(name: ["sport", "randonnée", "vélo"])
+room10.update(photo_url: "https://images.unsplash.com/photo-1530549387789-4c1017266635?ixlib=rb-1.2.1&ixid=MnwxM[…]90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1050&q=80")
+
+
 
 room5 = Room.create!(name: "Automobile", description: "À fond sur l'actualité auto ! 🚗")
 room5.topics = Topic.all
@@ -66,10 +71,6 @@ room9.topics = Topic.all
 room9.interests = Interest.where(name: ["films", "séries"])
 room9.update(photo_url: "https://static.booska-p.com/images/news_opti/1000/quentin-tarantino-ne-veut-plus-faire-de-films.jpg")
 
-room10 = Room.create!(name: "Passions atypiques", description: "Venez parler de vos passions qui sortent du commun! 👌😁")
-room10.topics = Topic.all
-room10.interests = Interest.where(name: ["bricolage"])
-room10.update(photo_url: "https://images.unsplash.com/photo-1565690929985-864614259ea4?ixid=MnwxMjA3fDB8MHxwaG90[…]GVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2158&q=80")
 
 room11 = Room.create!(name: "Aperoom", description: "Prenez votre verre et vos cacahuètes et rejoignez la room chill! 🍻😎🥜")
 room11.topics = Topic.all
