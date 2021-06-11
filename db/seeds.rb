@@ -11,7 +11,7 @@ User.delete_all
 Room.delete_all
 Topic.delete_all
 
-interests_list = %w[films séries animaux sport automobile dessin musique cuisine randonnée vélo informatique jeux\ de\ société jeux\ vidéo]
+interests_list = %w[films séries animaux sport automobile dessin musique cuisine randonnée vélo informatique jeux\ de\ société jeux\ vidéo photographie bricolage]
 interests_list.each do |interest|
   Interest.create!(name: interest)
 end
@@ -39,6 +39,30 @@ room5.interests = Interest.where(name: ["auto", "voiture"])
 room6 = Room.create!(name: "Animaux", description: "Venez parler de votre toutou ! 🐶😺")
 room6.topics = Topic.all
 room6.interests = Interest.where(name: ["animaux", "chat", "chien"])
+room7 = Room.create!(name: "Films cultes", description: "Venez parler des meilleurs films de tout les temps ! 🎬")
+room7.topics = Topic.all
+room7.interests = Interest.where(name: ["films", "séries"])
+room8 = Room.create!(name: "Les Bronzés", description: "Pour tout les fans des films de Patrice Leconte ! 😁🎬")
+room8.topics = Topic.all
+room8.interests = Interest.where(name: ["films", "séries"])
+room9 = Room.create!(name: "Tarantino", description: "Venez parler du meilleur réalisateur et scénariste: Quentin Tarantino 🎬")
+room9.topics = Topic.all
+room9.interests = Interest.where(name: ["films", "séries"])
+room10 = Room.create!(name: "Passions atypiques", description: "Venez parler de vos passions qui sortent du commun! 👌😁")
+room10.topics = Topic.all
+room10.interests = Interest.all
+room11 = Room.create!(name: "Aperoom", description: "Prenez votre verre et vos cacahuètes et rejoignez la room chill! 🍻😎🥜")
+room11.topics = Topic.all
+room11.interests = Interest.all
+room12 = Room.create!(name: "Photographie", description: "Partager vos meilleurs spot photo! 📸 🤳")
+room12.topics = Topic.all
+room12.interests = Interest.where(name: ["photographie"])
+room13 = Room.create!(name: "Art", description: "Partager votre artiste, toile , oeuvre, etc... 🖼 🎨")
+room13.topics = Topic.all
+room13.interests = Interest.where(name: ["photographie", "dessin"])
+room14 = Room.create!(name: "Bricolage", description: "Ici on parle marteau, clou, peinture, etc... 😜🛠👨‍🔧👩‍🔧")
+room14.topics = Topic.all
+room14.interests = Interest.where(name: ["bricolage"])
 
 file1 = URI.open('https://res.cloudinary.com/dayvtqlm1/image/upload/v1623313247/toto_hgpjrh.jpg')
 file2 = URI.open('https://res.cloudinary.com/dayvtqlm1/image/upload/v1623313247/tutu_zh80vu.jpg')
