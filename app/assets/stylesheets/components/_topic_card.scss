@@ -8,7 +8,7 @@
   border: 1px solid #0000000f;
   & a {
     display: inline-block;
-    color: black;
+    color: #616161;
     padding: 1rem;
     &:hover {
       text-decoration: none;
@@ -22,9 +22,6 @@
   }
 }
 #ongoing_topics {
-  & h2 {
-    margin-bottom: 1rem;
-  }
   & ul {
     padding-left: 0;
   }

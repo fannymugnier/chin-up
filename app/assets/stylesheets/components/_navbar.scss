@@ -1,10 +1,13 @@
 .navbar {
-  padding: 0 1rem;
+  padding: 1rem 2.5rem;
+  color: #fff;
+  position: absolute;
+  top: 0;
+  z-index: 99;
 }
 
 .navbar-lewagon {
-  justify-content: space-between;
-  background: white;
+  justify-content: flex-end;
 }
 
 .navbar-lewagon .navbar-collapse {

@@ -7,6 +7,17 @@ $randomNumber: random(200);
   text-decoration: none;
   color: #fff;
 
+  h2 {
+    color: #fff;
+    text-shadow: none;
+    margin-bottom: 0.5rem;
+    font-weight: 300;
+  }
+
+  p {
+    color: #fff;
+  }
+
   &:hover {
     text-decoration: none;
     color: #fff;
@@ -42,6 +53,7 @@ $randomNumber: random(200);
     padding: 0.25rem 0.5rem;
     border-radius: 5px;
     font-size: 0.85rem;
+    font-weight: 300;
   }
 }
 
