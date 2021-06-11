@@ -36,3 +36,9 @@
     box-shadow: none;
   }
 }
+
+@media (max-width: 750px) {
+  #chat-bar {
+    width: 93%;
+  }
+}

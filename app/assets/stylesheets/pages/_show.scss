@@ -10,3 +10,9 @@
   flex-direction: column;
   width: 100%;
 }
+
+@media (max-width: 750px) {
+  .main-page {
+    display: block;
+  }
+}
