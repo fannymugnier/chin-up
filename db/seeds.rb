@@ -16,7 +16,7 @@ interests_list.each do |interest|
   Interest.create!(name: interest)
 end
 
-topics_list = ["Meilleurs films de tous les temps", "Séries - Top 3", "Nouvelle saison de Dexter, bonne ou mauvaise idée ?", "Je suis à court d'inspiration", "Help me", "Bye bye"]
+topics_list = ["Meilleurs films de tous les temps", "Séries - Top 3", "Nouvelle saison de Dexter, bonne ou mauvaise idée ?", "L'ocaludophilie on en parle ?"]
 topics_list.each do |topic|
   Topic.create!(subject: topic)
 end
