@@ -1,5 +1,5 @@
 <a class="room-card" data-toggle="modal" data-target=".room-modal-<%= room.id %>">
-  <div class="card-room d-flex flex-column align-content-between justify-content-between">
+  <div class="card-room d-flex flex-column align-content-between justify-content-between" style="background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgb(0, 0, 0)), url(<%= room.photo_url %>)">
     <% if room.messages.where(message_type: "topic").last %>
       <p class="live-topic"><span class="blinking">🔴</span> En cours : <%= room.messages.where(message_type: "topic").last.content %></p>
     <% else %>
