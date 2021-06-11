@@ -7,6 +7,7 @@ cindy =     User.find_by(username: "Cindy")
 laure =     User.find_by(username: "Laure")
 pat =       User.find_by(username: "Pat")
 alex =      User.find_by(username: "Alex")
+george =    User.find_by(username: "George")
 
 events = [
   {
