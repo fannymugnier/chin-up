@@ -15,7 +15,7 @@ const previewImageOnQuery1 = () => {
         } else if (input1.value === "oui") {
           updateImage1("https://images.unsplash.com/photo-1580893211123-627e0262be3a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80")
         } else {
-          fetchPhoto(input2.value, updateImage2);
+          fetchPhoto(input1.value, updateImage1);
         }
       }
     });
