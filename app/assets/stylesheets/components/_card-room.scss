@@ -32,8 +32,8 @@ $randomNumber: random(200);
 }
 
 .card-room {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgb(0, 0, 0)),
-    url(https://source.unsplash.com/random?sig=#{$randomNumber});
+  // background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgb(0, 0, 0)),
+  //   url(https://source.unsplash.com/random?sig=#{$randomNumber});
   background-size: cover;
   background-position: center;
   height: 200px;
