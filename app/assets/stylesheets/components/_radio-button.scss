@@ -99,3 +99,10 @@ legend {
     transform: scale(1.1);
   }
 }
+
+@media (max-width: 750px) {
+  .answer-selector + label {
+    width: 345px;
+  }
+}
+
