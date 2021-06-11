@@ -21,7 +21,8 @@
           </div>
         <% end %>
       </div>
-      <button class="button-rounded"  id="pop-up" onclick="addFriendPopUp()">Ajouter en ami</button>
+      <%= message.user.username %>
+      <button class="button-rounded"  id="pop-up" onclick='addFriendPopUp("<%= message.user.username %>")'>Ajouter en ami</button>
     <%= link_to "...", '#', class: 'fake-more' %>
   </div>
 </div>
@@ -32,8 +33,8 @@
 </div>
 
 <script>
-addFriendPopUp = () => {
-  setTimeout(function(){ swal( "<%= message.user.username.capitalize %> a accepté votre demande" , {
+addFriendPopUp = (user) => {
+  setTimeout(function(){ swal( `${user} a accepté votre demande` , {
     icon: "info",
     buttons: false,
     timer: 3000,
