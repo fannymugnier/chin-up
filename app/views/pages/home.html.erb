@@ -29,7 +29,7 @@
         <li class="topic-card">
           <a class="w-100 topic-link" data-toggle="modal" data-target=".room-modal-<%= room.id %>">
             <div class="d-flex justify-content-between align-items-center">
-              <%= room.messages.where(message_type: "topic").last.content %>
+              <span><em><%= room.messages.where(message_type: "topic").last.content %></em>  -  <strong>Room : <%= room.name %></strong></span>
               <i class="fas fa-ellipsis-h"></i>
             </div>
           </a>
