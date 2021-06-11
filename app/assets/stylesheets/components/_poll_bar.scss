@@ -24,6 +24,8 @@ $second: #9f75c1;
 
 .first-text {
   color: $first;
+  font-weight: 500;
+  font-size: 1.2rem;
 }
 
 // #firstp {
@@ -39,4 +41,10 @@ $second: #9f75c1;
 
 .second-text {
   color: $second;
+  font-weight: 500;
+  font-size: 1.2rem;
+}
+
+.survey-column {
+  width:50%;
 }
