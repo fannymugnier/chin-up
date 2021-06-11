@@ -2,8 +2,6 @@ film_cultes = Room.find_by(name: 'Films cultes')
 passions_atypiques = Room.find_by(name: 'Passions atypiques')
 
 clement =   User.find_by(username: "Clément")
-joseph =    User.find_by(username: "Joseph")
-juliette =  User.find_by(username: "Juliette")
 fabrice =   User.find_by(username: "Fabrice")
 cindy =     User.find_by(username: "Cindy")
 laure =     User.find_by(username: "Laure")
@@ -11,41 +9,161 @@ pat =       User.find_by(username: "Pat")
 alex =      User.find_by(username: "Alex")
 
 events = [
-  { 
+  {
     type: 'message',
     room: passions_atypiques,
     user: alex,
-    message: 'Bonjour'
+    message: 'Salut Fanny !'
   },
-  { 
-    type: 'topic',
-    room: passions_atypiques,
-    user: fabrice,
-    subject: 'titre de mon topic'
-  },
-  { 
+  {
     type: 'message',
     room: passions_atypiques,
     user: fabrice,
-    message: 'Oui'
+    message: 'Hello !'
   },
-  { 
+  {
+    type: 'message',
+    room: passions_atypiques,
+    user: fabrice,
+    message: 'Qui a répondu oui ??'
+  },
+  {
     type: 'message',
     room: passions_atypiques,
     user: cindy,
     message: "C'est moi"
   },
-  { 
+  {
     type: 'message',
     room: passions_atypiques,
     user: cindy,
-    message: "C'est une passion pour le jeu de l'oie"
+    message: "C'est une passion pour le jeu de l'oie !"
   },
-  { 
+  {
     type: 'message',
     room: passions_atypiques,
     user: alex,
-    message: "C'est atypique"
+    message: "Alors ça, c'est atypique..."
+  },
+  {
+    type: 'message',
+    room: film_cultes,
+    user: pat,
+    message: "Salut Fanny !"
+  },
+  {
+    type: 'message',
+    room: film_cultes,
+    user: clement,
+    message: "Bienvenue dans la room :)"
+  },
+  {
+    type: 'message',
+    room: film_cultes,
+    user: laure,
+    message: "Salut Fanny, on vient de finir de parler de Truman Show."
+  },
+  {
+    type: 'message',
+    room: film_cultes,
+    user: pat,
+    message: "On lance un nouveau sujet ?"
+  },
+  {
+    type: 'message',
+    room: film_cultes,
+    user: george,
+    message: "Ok je m'en charge !"
+  },
+  {
+    type: 'topic',
+    room: film_cultes,
+    user: george,
+    subject: "Meilleur film de tous les temps"
+  },
+  {
+    type: 'message',
+    room: film_cultes,
+    user: pat,
+    message: "Titanic"
+  },
+  {
+    type: 'message',
+    room: film_cultes,
+    user: george,
+    message: "La Classe Américaine !"
+  },
+  {
+    type: 'message',
+    room: film_cultes,
+    user: clement,
+    message: "Matrix pour moi"
+  },
+  {
+    type: 'message',
+    room: film_cultes,
+    user: laure,
+    message: "Oui mais lequel ?"
+  },
+  {
+    type: 'message',
+    room: film_cultes,
+    user: clement,
+    message: "Non, le Retour du Roi, c'est le meilleur."
+  },
+  {
+    type: 'message',
+    room: film_cultes,
+    user: pat,
+    message: "Perso je suis d'accord avec Fanny."
+  },
+  {
+    type: 'message',
+    room: film_cultes,
+    user: george,
+    message: "Ce serait une bonne idée de lancer un sondage. Fanny, tu t'en charges ?"
+  },
+  {
+    type: 'message',
+    room: film_cultes,
+    user: george,
+    message: "C'est une pépite !"
+  },
+  {
+    type: 'message',
+    room: film_cultes,
+    user: george,
+    message: "C'est un détournement de plusieurs vieux films avec John Wayne. C'est vraiment super drôle ! :D"
+  },
+  {
+    type: 'message',
+    room: film_cultes,
+    user: george,
+    message: "Il est sur youtube, si ça vous dit on le regarde ensemble (bon, en remote, mais c'est toujours mieux que tout seul !) ?"
+  },
+  {
+    type: 'message',
+    room: film_cultes,
+    user: laure,
+    message: "Carrément !"
+  },
+  {
+    type: 'message',
+    room: film_cultes,
+    user: clement,
+    message: "Quelqu'un a le lien svp ?"
+  },
+  {
+    type: 'message',
+    room: film_cultes,
+    user: george,
+    message: "https://www.youtube.com/watch?v=W8sop56DBUs&t=127s"
+  },
+  {
+    type: 'message',
+    room: film_cultes,
+    user: pat,
+    message: "On lance dans 10min?"
   }
 ]
 
