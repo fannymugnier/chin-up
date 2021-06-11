@@ -7,7 +7,11 @@
     <% end %>
     <div>
     <h2><%= room.name %></h2>
-    <p><%= pluralize(room.online_users.count, "chinner")%></p>
+    <% if room.name == "Passions atypiques" || room.name == "Films cultes" %>
+      <p><%= pluralize(room.online_users.count, "chinner")%></p>
+    <% else %>
+      <p><%= pluralize(rand(2..9), "chinner")%></p>
+    <% end %>
     </div>
   </div>
 </a>
