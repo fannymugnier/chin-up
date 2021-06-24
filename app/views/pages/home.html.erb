@@ -2,101 +2,87 @@
   <h1>Chin Up!</h1>
   <h3>Échangez avec des personnes qui vous ressemblent.</h3>
 </div>
+
 <div class="d-flex flex-end">
   <%= render 'shared/navbar' %>
 </div>
+
 <div class="container first-part">
   <div class="searchbar">
     <%= form_tag rooms_path, method: :get do %>
-    <div class="d-flex align-items-center">
-      <%= text_field_tag :query,
-      params[:query],
-      class: "form-control",
-        placeholder: "Rechercher un sujet...",
-        autocomplete: 'off'
-        %>
+      <div class="d-flex align-items-center">
+        <%= text_field_tag  :query,
+                            params[:query],
+                            class: "form-control",
+                            placeholder: "Rechercher un sujet...",
+                            autocomplete: 'off' %>
         <button type="submit" class="btn search-btn">
           <i class='fas fa-search'></i>
         </button>
       </div>
+    <% end %>
+  </div>
+  <div id="ongoing_topics" class="mb-5 mt-3">
+    <h2>Sujets en cours</h2>
+    <ul class="mt-4">
+      <% @rooms.first(4).each do |room| %>
+        <% if room.messages.where(message_type: "topic").last %>
+          <li class="topic-card">
+            <a class="w-100 topic-link" data-toggle="modal" data-target=".room-modal-<%= room.id %>">
+              <div class="d-flex justify-content-between align-items-center">
+                <span><em><%= room.messages.where(message_type: "topic").last.content %></em>  -  <strong>Room : <%= room.name %></strong></span>
+                <i class="fas fa-ellipsis-h"></i>
+              </div>
+            </a>
+          </li>
+        <% end %>
+      <% end %>
+    </ul>
+    <%= link_to "Voir tous les sujets", "#", class: "btn btn-main" %>
+  </div>
+  <div>
+    <h2>Rooms qui pourraient vous intéresser</h2>
+    <div class="card-container mt-4">
+      <% @suggested_rooms.each do |room| %>
+      <%= render 'shared/room_card', room: room %>
       <% end %>
     </div>
-    <div id="ongoing_topics" class="mb-5 mt-3">
-      <h2>Sujets en cours</h2>
-      <ul class="mt-4">
-        <% @rooms.first(4).each do |room| %>
-        <% if room.messages.where(message_type: "topic").last %>
-        <li class="topic-card">
-          <a class="w-100 topic-link" data-toggle="modal" data-target=".room-modal-<%= room.id %>">
-            <div class="d-flex justify-content-between align-items-center">
-              <span><em><%= room.messages.where(message_type: "topic").last.content %></em>  -  <strong>Room : <%= room.name %></strong></span>
-              <i class="fas fa-ellipsis-h"></i>
-            </div>
-          </a>
-        </li>
-        <% end %>
-        <% end %>
-      </ul>
-      <%= link_to "Voir tous les sujets", "#", class: "btn btn-main" %>
+  </div>
+</div>
+
+<div class="cover-small middle-part text-center text-white py-5">
+  <h3 class="mb-5">Faites connaissance avec des personnes qui partagent les mêmes passions !</h3>
+  <div class="d-flex justify-content-center">
+    <div class="text-center mr-5">
+      <i class="fas fa-door-open mb-3" style="font-size: 2rem"></i>
+      <p>Rejoignez une room</p>
     </div>
-    <div>
-      <h2>Rooms qui pourraient vous intéresser</h2>
-      <div class="card-container mt-4">
-        <% @suggested_rooms.each do |room| %>
-        <%= render 'shared/room_card', room: room %>
-        <% end %>
-      </div>
+    <div class="text-center mr-5">
+      <i class="fas fa-bullhorn mb-3" style="font-size: 2rem"></i>
+      <p>Proposez un sujet</p>
+    </div>
+    <div class="text-center mr-5">
+      <i class="fas fa-poll mb-3" style="font-size: 2rem"></i>
+      <p>Lancez un sondage</p>
+    </div>
+    <div class="text-center">
+      <i class="fas fa-grin-beam mb-3" style="font-size: 2rem"></i>
+      <p>Discutez et amusez-vous !</p>
     </div>
   </div>
-  <div class="cover-small middle-part text-center text-white py-5">
-    <h3 class="mb-5">Faites connaissance avec des personnes qui partagent les mêmes passions !</h3>
-    <div class="d-flex justify-content-center">
-      <div class="text-center mr-5">
-        <i class="fas fa-door-open mb-3" style="font-size: 2rem"></i>
-        <p>Rejoignez une room</p>
-      </div>
-      <div class="text-center mr-5">
-        <i class="fas fa-bullhorn mb-3" style="font-size: 2rem"></i>
-        <p>Proposez un sujet</p>
-      </div>
-      <div class="text-center mr-5">
-        <i class="fas fa-poll mb-3" style="font-size: 2rem"></i>
-        <p>Lancez un sondage</p>
-      </div>
-      <div class="text-center">
-        <i class="fas fa-grin-beam mb-3" style="font-size: 2rem"></i>
-        <p>Discutez et amusez-vous !</p>
-      </div>
+</div>
+
+<div class="container second-part">
+  <div class="mb-5 pt-5">
+    <h2>Toutes nos rooms</h2>
+    <h5>Un choix vaste et varié pour trouver LA room qui correspond à vos envies !</h5>
+    <div class="card-container mb-4">
+      <% @rooms.first(9).each do |room| %>
+      <%= render 'shared/room_card', room: room %>
+      <% end %>
     </div>
+    <%= link_to "Voir toutes les rooms", rooms_path, class: "btn btn-main" %>
   </div>
+</div>
 
-  <div class="container second-part">
-    <div class="mb-5 pt-5">
-      <h2>Toutes nos rooms</h2>
-      <h5>Un choix vaste et varié pour trouver LA room qui correspond à vos envies !</h5>
-      <div class="card-container mb-4">
-        <% @rooms.first(9).each do |room| %>
-        <%= render 'shared/room_card', room: room %>
-        <% end %>
-      </div>
-      <%= link_to "Voir toutes les rooms", rooms_path, class: "btn btn-main" %>
-    </div>
-
-    <!-- <div>
-      <h2> Les plus populaires </h2>
-      <div class="card-container"> -->
-        <%# @rooms.each do |room| %>
-        <%#= render 'shared/room_card', room: room %>
-        <%# end %>
-      <!-- </div>
-      </div> -->
-    </div>
-
-    <div class="footer">
-      © Copyright 2021
-      <div class="footer-copyright">
-        Chin-up ! <i class="fas fa-heart"></i>
-      </div>
-    </div>
-
-
+<%= render 'shared/footer' %>
