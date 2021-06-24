@@ -1,68 +1,46 @@
-
 <div class="main-page">
   <aside class="sidebar">
-    <%# Image de la room %>
-  <div class = "upper-left-room">
-    <div class="d-flex justify-content-between">
-      <div class="d-flex">
-        <%= link_to "", root_path, class:"exit-logo" %>
-        <div class="ml-2 custom-width">
-          <h4><%= @room.name %></h4>
-          <p><%= @room.description %></p>
+    <div class = "upper-left-room">
+      <div class="d-flex justify-content-between">
+        <div class="d-flex">
+          <%= link_to "", root_path, class:"exit-logo" %>
+          <div class="ml-2 custom-width">
+            <h4><%= @room.name %></h4>
+            <p><%= @room.description %></p>
+          </div>
+        </div>
+        <div>
+          <span><%= pluralize(@users_in_room.count, "chinner")%></span>
+          <div class="d-flex online-users flex-row-reverse">
+            <% @users_in_room.first(4).each do |user| %>
+              <%= cl_image_tag user.photo.key, class: "online-users-avatar" %>
+            <% end %>
+          </div>
         </div>
       </div>
-      <div>
-        <span><%= pluralize(@users_in_room.count, "chinner")%></span>
-        <div class="d-flex online-users flex-row-reverse">
-          <% @users_in_room.first(4).each do |user| %>
-            <%= cl_image_tag user.photo.key, class: "online-users-avatar" %>
-          <% end %>
-        </div>
-      </div>
-    </div>
-    <br>
-    <div class="topic-banner">
-      <p> <span class="blinking">🔴</span>
+      <br>
+      <div class="topic-banner">
+        <p> <span class="blinking">🔴</span>
         Sujet en cours : <br> <span id="topic-banner-anchor"><%= @room.messages.where(message_type: "topic").last ? @room.messages.where(message_type: "topic").last.content : "Aucun sujet en cours." %></span>
-      </p>
-      <div id="countdown" <%= "data-end-timer=#{@end_timer_in_seconds}" if @end_timer_in_seconds %>>
+        </p>
+        <div id="countdown" <%= "data-end-timer=#{@end_timer_in_seconds}" if @end_timer_in_seconds %>>
+        </div>
       </div>
     </div>
-  </div>
 
-
-    <%# Sondage et autres %>
+    <%# Sondage et topic %>
     <section class="room-topic">
       <%= render 'rooms/show_new_topic', room: @room, message: @message %>
     </section>
     <section class="room-survey">
       <div class="expand">
-          <!-- Modal -->
-
-          <div class="surveys_status">
-            <div>
-              <div id="survey-container">
-                <% if @ongoing_survey %>
-                    <% @ongoing_survey.each do |survey| %>
-                      <%= render 'rooms/show_ongoing_survey', survey: survey %>
-                    <% end %>
-                <% end %>
-              </div>
-              <div class="closed-surveys">
-                <% if @closed_surveys %>
-                  <% @closed_surveys.each do |survey| %>
-                    <%= survey.title %>
-                    <%= survey.first_proposition %>
-                    <%= survey.answers.where(selected_proposition: survey.first_proposition).count %>
-                    <%= survey.second_proposition %>
-                    <%= survey.answers.where(selected_proposition: survey.second_proposition).count %>
-                  <% end %>
-                <% else %>
-                  <p>L'historique est vide.</p>
-                <% end %>
-              </div>
-            </div>
-          </div>
+        <div id="survey-container">
+          <% if @ongoing_survey %>
+            <% @ongoing_survey.each do |survey| %>
+              <%= render 'rooms/show_ongoing_survey', survey: survey %>
+            <% end %>
+          <% end %>
+        </div>
       </div>
     </section>
   </aside>
@@ -84,5 +62,3 @@
     <% end %>
   </div>
 </div>
-
-
