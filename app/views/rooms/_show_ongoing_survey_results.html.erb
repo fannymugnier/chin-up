@@ -11,22 +11,6 @@
     <div class="proposition second" style="width: <%= survey.second_proposition_percent %>%">
     </div>
   </div>
-    <div id='winning-prop-survey<%= survey.id %>' class='hidden'>
+    <div id='winning-prop-survey<%= survey.id %>'>
     </div>
 </div>
-
-
-<%# if survey.first_proposition_count + survey.second_proposition_count < survey.room.online_users.count %>
-  <!-- <div id='winning-prop-survey<%= survey.id %>' class='hidden'>
-  </div> -->
-<%# else %>
-  <!-- <div id='winning-prop-survey<%= survey.id %>'> -->
-    <%# if survey.first_proposition_count < survey.second_proposition_count %>
-      <!-- <p><%= survey.second_proposition %> l'emporte ! 🎉</p> -->
-    <%# elsif survey.first_proposition_count > survey.second_proposition_count %>
-      <!-- <p><%= survey.first_proposition %> l'emporte ! 🎉</p> -->
-    <%# else %>
-      <!-- <p>Ex-æquo ! 🤷‍♂️</p> -->
-    <%# end %>
-  <!-- </div> -->
-<%# end %>
