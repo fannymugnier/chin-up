@@ -1,27 +1,64 @@
+<div class="d-flex flex-end">
+  <%= render 'shared/navbar' %>
+</div>
+
 <div class="cover d-flex flex-column align-items-center justify-content-center text-white">
   <h1>Chin Up!</h1>
   <h3>Échangez avec des personnes qui vous ressemblent.</h3>
 </div>
 
-<div class="d-flex flex-end">
-  <%= render 'shared/navbar' %>
+<div class="searchbar">
+  <%= form_tag rooms_path, method: :get do %>
+    <div class="d-flex align-items-center">
+      <%= text_field_tag  :query,
+                          params[:query],
+                          class: "form-control",
+                          placeholder: "Rechercher un thème...",
+                          autocomplete: 'off' %>
+      <button type="submit" class="btn search-btn">
+        <i class='fas fa-search'></i>
+      </button>
+    </div>
+  <% end %>
+</div>
+
+
+
+<!-- <div class="searchbar">
+  <%= form_tag rooms_path, method: :get do %>
+    <div class="d-flex align-items-center">
+      <%= text_field_tag  :query,
+                          params[:query],
+                          class: "form-control",
+                          placeholder: "Rechercher un thème...",
+                          autocomplete: 'off' %>
+      <button type="submit" class="btn search-btn">
+        <i class='fas fa-search'></i>
+      </button>
+    </div>
+  <% end %>
+</div>
+ -->
+<div class="features">
+  <div class="text-center">
+    <i class="fas fa-door-open"></i>
+    <p>Rejoignez une room</p>
+  </div>
+  <div class="text-center">
+    <i class="fas fa-bullhorn"></i>
+    <p>Proposez un sujet</p>
+  </div>
+  <div class="text-center">
+    <i class="fas fa-poll"></i>
+    <p>Lancez un sondage</p>
+  </div>
+  <div class="text-center">
+    <i class="fas fa-grin-beam"></i>
+    <p>Discutez et amusez-vous !</p>
+  </div>
 </div>
 
 <div class="container first-part">
-  <div class="searchbar">
-    <%= form_tag rooms_path, method: :get do %>
-      <div class="d-flex align-items-center">
-        <%= text_field_tag  :query,
-                            params[:query],
-                            class: "form-control",
-                            placeholder: "Rechercher un sujet...",
-                            autocomplete: 'off' %>
-        <button type="submit" class="btn search-btn">
-          <i class='fas fa-search'></i>
-        </button>
-      </div>
-    <% end %>
-  </div>
   <div id="ongoing_topics" class="mb-5 mt-3">
     <h2>Sujets en cours</h2>
     <ul class="mt-4">
@@ -40,7 +77,7 @@
     </ul>
     <%= link_to "Voir tous les sujets", "#", class: "btn btn-main" %>
   </div>
-  <div>
+  <div class="mb-5">
     <h2>Rooms qui pourraient vous intéresser</h2>
     <div class="card-container mt-4">
       <% @suggested_rooms.each do |room| %>
@@ -48,32 +85,7 @@
       <% end %>
     </div>
   </div>
-</div>
-
-<div class="cover-small middle-part text-center text-white py-5">
-  <h3 class="mb-5">Faites connaissance avec des personnes qui partagent les mêmes passions !</h3>
-  <div class="d-flex justify-content-center">
-    <div class="text-center mr-5">
-      <i class="fas fa-door-open mb-3" style="font-size: 2rem"></i>
-      <p>Rejoignez une room</p>
-    </div>
-    <div class="text-center mr-5">
-      <i class="fas fa-bullhorn mb-3" style="font-size: 2rem"></i>
-      <p>Proposez un sujet</p>
-    </div>
-    <div class="text-center mr-5">
-      <i class="fas fa-poll mb-3" style="font-size: 2rem"></i>
-      <p>Lancez un sondage</p>
-    </div>
-    <div class="text-center">
-      <i class="fas fa-grin-beam mb-3" style="font-size: 2rem"></i>
-      <p>Discutez et amusez-vous !</p>
-    </div>
-  </div>
-</div>
-
-<div class="container second-part">
-  <div class="mb-5 pt-5">
+  <div>
     <h2>Toutes nos rooms</h2>
     <h5>Un choix vaste et varié pour trouver LA room qui correspond à vos envies !</h5>
     <div class="card-container mb-4">
