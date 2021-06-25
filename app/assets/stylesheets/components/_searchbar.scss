@@ -1,11 +1,13 @@
 /** @format */
 
 .searchbar {
-  top: -1.5rem;
   display: flex;
   justify-content: center;
-  position: relative;
+  position: absolute;
+  top: 26.5rem;
   z-index: 5;
+  width: 100%;
+
   & input[type="text"] {
     border-radius: 99px;
     height: 3rem;
@@ -47,9 +49,24 @@
 
 // searchbar on the index page
 #search-index {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+
+  & input[type="text"] {
+    border-radius: 99px;
+    height: 3rem;
+    padding: 0 3rem 0 1.25rem;
+    &:focus {
+      border-color: #cecece;
+      box-shadow: 0 0 3px #cecece;
+    }
+  }
   form {
-    margin-top: 3rem;
+    margin-top: 4rem;
     margin-bottom: 1rem;
+    position: relative;
+    width: 50%;
   }
 }
 
@@ -59,7 +76,7 @@
   }
   #search-index {
     form {
-      margin-top: 6rem;
+      width: 100%;
     }
   }
 }

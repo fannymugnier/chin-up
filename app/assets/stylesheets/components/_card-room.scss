@@ -81,3 +81,15 @@
 .modal-dialog-room-card {
   max-width: 700px;
 }
+
+@media screen and (max-width: 1024px) {
+  .card-container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .card-container {
+    grid-template-columns: 1fr;
+  }
+}
